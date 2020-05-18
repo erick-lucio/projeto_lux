@@ -4,10 +4,7 @@ const { Op } = require("sequelize");
 
 module.exports = {
 
-  async searchLast100Messages(req, res) {
-    
-    
-    
+  async searchLast100Messages(req, res) {          
     let chat_messages = await Chat.findAll({
       attributes:['messages','time_msg'],
      // where: {

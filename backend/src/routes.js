@@ -1,9 +1,6 @@
 const express = require('express');
-
 const UserController = require('./controllers/UserController');
 const ChatController = require('./controllers/ChatController');
-
-
 const routes = express.Router();
 
 routes.get('/alluser', UserController.returnAllUsers);
