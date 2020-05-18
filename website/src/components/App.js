@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import PageNotFound from './components/Page404';
+import PageNotFound from './Page404';
 
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
 
@@ -11,14 +11,8 @@ import './components/Defaultcss.css'
 import './components/LayoutTemplate.css'
 
 
-export default class App extends React.Component{
-  constructor()
-  {
-
-  }
-
-
-  render(){
+export default function App(){
+    const [] = useState([])
 
     return(
         <BrowserRouter>     
@@ -48,5 +42,5 @@ export default class App extends React.Component{
         
      
     );
-  }
+  
 }
