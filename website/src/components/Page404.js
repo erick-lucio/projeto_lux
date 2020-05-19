@@ -1,4 +1,7 @@
+/*Component imports */
 import React from 'react';
+
+/*css imports */
 import './Page404.css'
 
 export default function PageNotFound(){

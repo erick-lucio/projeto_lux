@@ -1,9 +1,9 @@
 
 /* Login */
 .class_login_container{ 
-    position: absolute;
+    position: relative;
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
 
 
     background: #FFFFFF;
@@ -22,7 +22,7 @@
     text-align: center;
 }
 /* Input de nome*/
-.class_login_text_input_name{    
+.class_login_text_input_password{    
     position: relative;
     width: 35vw;
     height: 7vh;

@@ -1,12 +1,17 @@
+/*Component imports */
 import React,{useState} from 'react';
 
-
+/*css imports */
+import './Footer.css';
 
     export default function Footer() {
         document.title = 'Erick';
         return (
             <>
-                 <h1>Footer</h1>
+              <footer className="class_footer_container">
+
+                Footer    
+              </footer>   
             </>
         )
 

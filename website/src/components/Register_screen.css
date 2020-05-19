@@ -1,9 +1,9 @@
 
 /* register */
 .class_register_container{ 
-    position: absolute;
+    position: relative;
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
 
 
     background: #FFFFFF;

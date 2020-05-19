@@ -1,23 +1,22 @@
+/*Component imports */
 import React,{useState} from 'react';
-
-//import Header from './components/Header';
-//import Footer from './components/Footer';
-import PageNotFound from './Page404';
-
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
-
 import Login from './Login_Screen';
 import Register from './Register_screen';
-//import './components/Defaultcss.css'
-//import './components/LayoutTemplate.css'
+import PageNotFound from './Page404';
+import Footer from './Footer';
+/*css imports */
+
+
+
 
 
 export default function App(){
     const [] = useState([])
-
+    
     return(
         <BrowserRouter>     
- 
+    
        
         <Switch>
              <Route exact path="/register" component={Register}/>
@@ -26,7 +25,7 @@ export default function App(){
              <Route component={PageNotFound}/>
 
         </Switch>
-        
+        <Footer/>
    
         
         
@@ -34,14 +33,7 @@ export default function App(){
         
         
         
-        </BrowserRouter>
-      
-        
-
-        
-
-        
-     
-    );
+        </BrowserRouter>                        
+         );
   
 }
