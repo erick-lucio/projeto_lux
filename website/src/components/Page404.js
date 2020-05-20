@@ -8,7 +8,7 @@ export default function PageNotFound(){
 
     
         return(
-            <div className="div404Page" id="mainRouter">
+            <div className="class_404_page_container">
                 404 PAGE NOT FOUND
             </div>
         )

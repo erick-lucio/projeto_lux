@@ -5,13 +5,20 @@ import {Link} from 'react-router-dom'
 /*css imports */
 import './Register_screen.css';
    
+/*functions import */
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
+
     export default function Register(){
+        const [cookies, setCookie] = useCookies([]);
+        
         window.scrollTo({ top: 0});//scrool to top of page
         /*Funçoes do componente */
         function register_check(){
             let email_login = document.getElementById('id_input_register_email').value;
             let name_login = document.getElementById('id_input_register_name').value;    
             let password_login = document.getElementById('id_input_register_password').value;
+            console.log(email_login,name_login,password_login)
             //aplicar regex p gerenciamento das palavras inseridas
             
         };

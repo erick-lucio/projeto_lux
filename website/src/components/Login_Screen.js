@@ -1,18 +1,47 @@
 /*Component imports */
 import React,{useState} from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
+
+
+/*functions import */
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 /*css imports */
 import './Login_Screen.css';
 
+/* import urls*/
+import urls from '../index';
+
     export default function Login() {
+        const [cookies, setCookie] = useCookies([]);
+        //console.log(urls.server_url_port_https,urls.server_url_port_http)
         /*Funçoes do componente */
         function login_check(){
             let email_login = document.getElementById('id_input_login_email').value;
             let password_login = document.getElementById('id_input_login_password').value;
-            console.log(password_login,email_login)
+            let data_to_send = {email_login,password_login};
+            console.log(data_to_send)
+            let date = new Date();
+            setCookie('email', email_login, { path: '/' });
+            setCookie('password', password_login, { path: '/' });
             //aplicar regex p gerenciamento das palavras inseridas
-            
+            axios({
+                method: 'post',
+                url: urls.server_url_port_http,
+                data: 'formData',
+                //headers: {'Content-type': 'multipart/form-data'}
+                })
+                .then(function (response) {
+                    //handle success
+                    //console.log(response);
+                })
+                .catch(function (response) {
+                    //handle error
+                    //console.log(response);
+                });
+
         };
         /* */
         document.title = 'Erick';

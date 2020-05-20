@@ -6,12 +6,13 @@ import Register from './Register_screen';
 import PageNotFound from './Page404';
 import Footer from './Footer';
 /*css imports */
+import './index.css';
+
+/*functions import */
 
 
 
-
-
-export default function App(){
+export default function MainApp(){
     const [] = useState([])
     
     return(
