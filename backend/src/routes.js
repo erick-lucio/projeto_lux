@@ -1,7 +1,10 @@
 const express = require('express');
 const UserController = require('./controllers/UserController');
 const ChatController = require('./controllers/ChatController');
+const DefaultController = require('./controllers/DefaultController');
 const routes = express.Router();
+
+routes.get('/', DefaultController.defaultFunction);
 
 routes.get('/alluser', UserController.returnAllUsers);
 routes.post('/cruser', UserController.createUser);
