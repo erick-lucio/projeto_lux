@@ -1,0 +1,78 @@
+
+/* Login */
+.class_login_container{ 
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    
+
+    background: #FFFFFF;
+}
+/* Rectangle */
+.class_login_box_container{    
+    position: absolute;
+    width: 45vw;
+    height: 60vh;
+    left: 50vw;
+    top: 20vh;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    text-align: center;
+}
+/* Input de nome*/
+.class_login_text_input_password{    
+    position: relative;
+    width: 35vw;
+    height: 7vh;
+    font-size: 2em;
+    
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+/* input email*/
+.class_login_text_input_email{    
+    margin-bottom: 5vh;
+    margin-top: 4vh;
+    position: relative;
+    width: 35vw;
+    height: 7vh;
+    font-size: 2em;
+    
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+/*texto faça login */
+.class_login_p_title{
+    position: relative;
+    font-size: 4em;
+    color: #000000;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    
+}
+/*button login */
+.class_naotemconta_button{
+    font-size: 1.5em;
+    width: 17vw;
+    height: 5vh;
+    margin-top: 3vh;
+    margin-left: 3vw;
+    background-color:#18A0FB ;
+    border: 2px solid #18A0FB ;
+    color: #000000;
+}
+/*button nao tenho conta */
+.class_login_button{
+    font-size: 1.5em;
+    width: 9vw;
+    height: 5vh;
+    margin-top: 3vh;
+    margin-right: 3vw;
+    background-color:#18A0FB ;
+    border: 2px solid #18A0FB ;
+    color: #000000;
+}
