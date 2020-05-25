@@ -9,12 +9,9 @@ import './Register_screen.css';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
-<<<<<<< HEAD
 /* import urls*/
 import urls from '../index';
 
-=======
->>>>>>> 0083e12dbd87d6cf570a2d4a0621845a37ab6099
     export default function Register(){
         const [cookies, setCookie] = useCookies([]);
         

@@ -2,20 +2,12 @@
   "name": "website",
   "version": "0.1.0",
   "private": true,
-<<<<<<< HEAD
-  
-=======
->>>>>>> 0083e12dbd87d6cf570a2d4a0621845a37ab6099
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
-<<<<<<< HEAD
     "bootstrap": "^4.5.0",
-=======
-    "bootstrap": "^4.4.1",
->>>>>>> 0083e12dbd87d6cf570a2d4a0621845a37ab6099
     "file-saver": "^2.0.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
@@ -23,10 +15,7 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-<<<<<<< HEAD
     "reactstrap": "^8.4.1",
-=======
->>>>>>> 0083e12dbd87d6cf570a2d4a0621845a37ab6099
     "sha1": "^1.1.1"
   },
   "scripts": {

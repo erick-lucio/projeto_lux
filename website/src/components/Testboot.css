@@ -1,0 +1,32 @@
+
+@media (max-width: 576px) {  /*xs */
+    .class_test_1{
+         background-color:aqua;
+    } 
+}
+
+@media (min-width: 577px) {  /*sm */
+    .class_test_1{
+         background-color:red;
+         height: 10vh;
+    } 
+} 
+@media (min-width: 768px) {  /*md */
+    .class_test_1{
+         background-color:blue;
+         height: 20vh;
+    } 
+}
+
+@media (min-width: 992px) { /* lg*/ 
+    .class_test_1{
+         background-color:green;
+         height: 50vh;
+    } 
+}
+@media (min-width:1200) {  /*xl */
+    .class_test_1{
+         background-color:black;
+         height: 66vh;
+    } 
+} 

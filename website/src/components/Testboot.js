@@ -2,8 +2,11 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
+/*import css */
+import './Testboot.css';
 
 const styles = {
+  
   container: {
 
   },
@@ -36,8 +39,8 @@ const styles = {
   red:{
     backgroundColor:'red'
   },
-  blue:{
-    backgroundColor:'blue'
+  blue:{  
+        
   }
 }
 const Example = (props) => {
@@ -45,7 +48,7 @@ const Example = (props) => {
     <>
     <Container  style={styles.mainRow}>
       <Row> 
-        <Col xl="12">
+        <Col xl>
             <Form style={styles.box_form}>
                 <FormGroup>
                     <Label for="exampleEmail">Email</Label>
@@ -64,11 +67,8 @@ const Example = (props) => {
      
     </Container>
     <Container fluid={true}>
-          <Row>
-              <Col xl="10" style={styles.red}>
-                  fgf
-              </Col>
-              <Col xl="2" style={styles.blue}>
+          <Row>         
+              <Col xl="12" className="class_test_1">
                   fdf
               </Col>
           </Row>
