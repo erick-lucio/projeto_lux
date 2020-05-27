@@ -1,0 +1,23 @@
+/*menu text */
+.class_header_menu{
+    text-decoration: none;
+    text-align: right;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+/*title link */
+
+.class_header_title_link{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.6rem;
+}
+/*class linha */
+
+.class_header_row{
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(3, 14, 26);
+    
+}

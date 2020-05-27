@@ -7,6 +7,8 @@ import PageNotFound from './components/Page404';
 import Footer from './components/Footer';
 import Example from './components/Testboot';
 import {createBrowserHistory} from 'history';
+import Header from './components/Header';
+import MainPage from './components/MainPage';
 
 /*css imports */
 import './components/index.css';
@@ -21,9 +23,9 @@ export default function Routes(){
     return(
         <BrowserRouter history={history} >     
     
-       
+        <Header/>
         <Switch>
-            
+             <Route exact path="/main" component={MainPage}/>  
              <Route exact path="/register" component={Register}/>
              <Route exact path="/login" component={Login}/>
              <Route exact path="/" component={Example}/>       
