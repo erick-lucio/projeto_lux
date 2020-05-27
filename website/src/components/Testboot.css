@@ -16,7 +16,7 @@
     }  
     .tittle1{
         font-size: 40px;
-        color:rgb(64, 97, 124);
+        color:#ffffff;
     }
 
 }
@@ -38,7 +38,7 @@
     } 
     .tittle1{
         font-size: 50px;
-        color:rgb(64, 97, 124);
+        color:#ffffff;
     }
 } 
 @media (min-width: 768px) {  /*md */

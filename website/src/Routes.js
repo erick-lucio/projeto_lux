@@ -6,6 +6,7 @@ import Register from './components/Register_screen';
 import PageNotFound from './components/Page404';
 import Footer from './components/Footer';
 import Example from './components/Testboot';
+import {createBrowserHistory} from 'history';
 
 /*css imports */
 import './components/index.css';
@@ -16,9 +17,9 @@ import './components/index.css';
 
 export default function Routes(){
     const [] = useState([])
-    
+    const history = createBrowserHistory();
     return(
-        <BrowserRouter >     
+        <BrowserRouter history={history} >     
     
        
         <Switch>

@@ -55,6 +55,7 @@
 .class_naotemconta_button{
     margin-left: 50px;
     font-size: 1.5em;
+    text-decoration: none;
 }
 /*button nao tenho conta */
 .class_login_button{

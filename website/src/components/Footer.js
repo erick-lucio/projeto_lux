@@ -9,7 +9,7 @@ import './Footer.css';
 import Instagram from '../imgs/Instagran_icon.png';
 
     export default function Footer() {
-        document.title = 'Erick';
+      document.title = 'Personal Website';
         return (
             <>
               <Container className="class_footer_container" fluid={true}>
@@ -20,21 +20,22 @@ import Instagram from '../imgs/Instagran_icon.png';
                         <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
                     </Col>
                     <Col sm="2" >
-                        <h4 className="white_color">Sem turpis amet semper</h4>
+                        <h4 className="white_color">Informações</h4>
                             <ul>
-                              <li className="class_footer_lists_elements"><a href="#">Dolor pulvinar sed etiam.</a></li>
-                              <li className="class_footer_lists_elements"><a href="#">Etiam vel lorem sed amet.</a></li>
+                              <li className="class_footer_lists_elements"><a href="#">Sobre.</a></li>
+                              <li className="class_footer_lists_elements"><a href="#">Contato.</a></li>
                               <li className="class_footer_lists_elements"><a href="#">Felis enim feugiat viverra.</a></li>
                               <li className="class_footer_lists_elements_no_border"><a href="#">Dolor pulvinar magna etiam.</a></li>
                             </ul>
                     </Col>
                     <Col sm="2" >
-                        <h4 className="white_color">Magna sed ipsum</h4>
+                        <h4 className="white_color">Redes Sociais</h4>
                             <ul >
-                              <li className="class_footer_lists_social_media"><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
-                              <li className="class_footer_lists_social_media"><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
-                              <li className="class_footer_lists_social_media"><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
-                              <li className="class_footer_lists_social_media"><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+                              <li className="class_footer_lists_social_media"><a href="#">Twitter</a></li>
+                              <li className="class_footer_lists_social_media"><a href="#">Facebook</a></li>
+                              <li className="class_footer_lists_social_media"><a href="#">Instagram</a></li>
+                              <li className="class_footer_lists_social_media"><a href="#">Github</a></li>
+                              <li className="class_footer_lists_social_media"><a href="#">Linkedim</a></li>
                             </ul>
                     </Col>
                     <Col sm="1"></Col>

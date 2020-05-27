@@ -3,6 +3,7 @@ import React,{useState} from 'react';
 import {Link} from 'react-router-dom'
 import {Button, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
+
 /*css imports */
 import './Register_screen.css';
    
@@ -58,11 +59,10 @@ import urls from '../index';
                                 onClick={()=>alert("botao Registrar pressionado")}
                                 className="class_register_button"
                                 >Registrar</Button>
-                                <Button 
-                                role="button"
-                                onClick={()=>alert("botao ja tenho conta pressionado")}
-                                className="class_temconta_button"
-                                >Ja possuo uma conta</Button>
+                                <Link 
+                                className="btn btn-secondary class_temconta_button"
+                                to="/login">Ja possuo uma conta</Link>
+                        
                             </Form>
                         </Col>
                        

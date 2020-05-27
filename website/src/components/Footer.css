@@ -2,6 +2,7 @@
 .class_footer_container{
     height: 40vh;
     width: 100vw;
+ 
     position: relative;   
     background: #FFFFFF;
     background-image: linear-gradient(#111111 ,#2f2d2d);

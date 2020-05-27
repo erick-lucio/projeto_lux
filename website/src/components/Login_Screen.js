@@ -73,11 +73,9 @@ import urls from '../index';
                                 onClick={()=>alert("botao login pressionado")}
                                 className="class_login_button"
                                 >Login</Button>
-                                <Button 
-                                role="button"
-                                onClick={()=>alert("botao nao tenho conta pressionado")}
-                                className="class_naotemconta_button"
-                                >Nao possuo uma conta</Button>
+                                <Link 
+                                className="btn btn-secondary class_naotemconta_button"
+                                to="/register">Não possuo uma conta</Link>
                             </Form>
                         </Col>
                        
