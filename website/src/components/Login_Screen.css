@@ -4,9 +4,11 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    background: #FFFFFF;
+    background: rgb(209, 204, 204);
 }
 /* Rectangle */
 .class_login_box_container{    
@@ -22,15 +24,12 @@
     text-align: center;
 }
 /* Input de nome*/
-.class_login_text_input_password{    
-    position: relative;
-    width: 35vw;
-    height: 7vh;
-    font-size: 2em;
+.class_login_text_big_tittle{    
+    color: #FFFFFF;
+    font-size: 3em;
+
     
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
+ 
 }
 /* input email*/
 .class_login_text_input_email{    
@@ -46,33 +45,33 @@
     box-sizing: border-box;
 }
 /*texto faça login */
-.class_login_p_title{
-    position: relative;
-    font-size: 4em;
-    color: #000000;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+.class_login_texts{
+    color: #FFFFFF;
+    font-size: 2em;
+    padding-bottom: 5px;
     
 }
 /*button login */
 .class_naotemconta_button{
+    margin-left: 50px;
     font-size: 1.5em;
-    width: 17vw;
-    height: 5vh;
-    margin-top: 3vh;
-    margin-left: 3vw;
-    background-color:#18A0FB ;
-    border: 2px solid #18A0FB ;
-    color: #000000;
 }
 /*button nao tenho conta */
 .class_login_button{
+    margin-right: 50px;
     font-size: 1.5em;
-    width: 9vw;
-    height: 5vh;
-    margin-top: 3vh;
-    margin-right: 3vw;
-    background-color:#18A0FB ;
-    border: 2px solid #18A0FB ;
-    color: #000000;
+}
+/* form do login*/
+.class_login_form{
+    background-color: rgb(48, 46, 46);
+    padding: 10% 10% 20% 10%;
+    text-align: center;
+}
+/*coluna principal */
+.class_login_col_form{
+    width: 100%;
+}
+.class_login_row_form{
+    width: 50%;
+    
 }

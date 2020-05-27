@@ -1,7 +1,7 @@
 /*Component imports */
 import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
-
+import {Button, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
 /*functions import */
@@ -14,8 +14,7 @@ import './Login_Screen.css';
 /* import urls*/
 import urls from '../index';
 
-/*React strap imports  */
-import { Button } from 'reactstrap';
+
 
 /* */
     export default function Login() {
@@ -48,35 +47,42 @@ import { Button } from 'reactstrap';
 
         };
         /* */
-        document.title = 'Erick';
+        document.title = 'Personal Website';
         window.scrollTo({ top: 0});//vai pro inicio da page
         return (
             <>
-               <div className="class_login_container">
-                   <Button/>
-                    <div className="class_login_box_container">                        
-                        <p className="class_login_p_title" >Faça Login na sua conta</p><br/>
-                        <input 
-                            id="id_input_login_email"
-                            type="text" 
-                            placeholder="Digite o seu email" 
-                            className="class_login_text_input_email"></input><br/>
-                        <input 
-                            id="id_input_login_password"
-                            type="text" 
-                            placeholder="Digite sua senha"
-                            className="class_login_text_input_password"></input><br/>
-                        
-                        <button 
-                            className="class_login_button"
-                            onClick={()=>login_check()}>Login</button>
-                        <Link to="/register">
-                            <button 
-                            className="class_naotemconta_button">Não tem uma Conta?</button></Link>
-                        
-                        
-                    </div>
-               </div>
+                <Container className="class_login_container" fluid={true}>
+                    <Row className="class_login_row_form">
+                       
+                        <Col sm="12" className="class_login_col_form">
+                            <Form className="class_login_form">
+                                <p className="class_login_text_big_tittle">Faço Login na sua Conta</p>
+                                <FormGroup>
+                                    <Label className="class_login_texts">Email</Label>
+                                    <Input
+                                    type="email"
+                                    placeholder="Insira seu email"></Input>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label className="class_login_texts">Senha</Label>
+                                    <Input
+                                    type="password"
+                                    placeholder="Insira sua senha"></Input>
+                                </FormGroup>
+                                <Button 
+                                onClick={()=>alert("botao login pressionado")}
+                                className="class_login_button"
+                                >Login</Button>
+                                <Button 
+                                role="button"
+                                onClick={()=>alert("botao nao tenho conta pressionado")}
+                                className="class_naotemconta_button"
+                                >Nao possuo uma conta</Button>
+                            </Form>
+                        </Col>
+                       
+                    </Row>
+                </Container>
             </>
         )
 

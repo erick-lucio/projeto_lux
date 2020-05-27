@@ -1,6 +1,7 @@
 /*Component imports */
 import React,{useState} from 'react';
 import {Link} from 'react-router-dom'
+import {Button, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 /*css imports */
 import './Register_screen.css';
@@ -27,33 +28,46 @@ import urls from '../index';
         };
         /* */
         return (
-            <>
-               <div className="class_register_container">
-                   <div className="class_register_box_container">
-                        <p className="class_register_p_title">Crie a sua conta</p>
-                        <input
-                            id="id_input_register_name"
-                            type="text"
-                            placeholder="Digite o seu nome"
-                            className="class_register_text_input_name"></input><br/>
-                        <input
-                            id="id_input_register_email"
-                            type="text"
-                            placeholder="Digite o seu Email"
-                            className="class_register_text_input_email"></input><br/>
-                        <input
-                            id="id_input_register_password"
-                            type="text"
-                            placeholder="Digite sua senha"
-                            className="class_register_text_input_password"></input><br/>                        
-                        <button 
+            <>  
+                <Container className="class_register_container" fluid={true}>
+                    <Row className="class_register_row_form">
+                       
+                        <Col sm="12" className="class_register_col_form">
+                            <Form className="class_register_form">
+                                <p className="class_register_text_big_tittle">Faço Login na sua Conta</p>
+                                <FormGroup>
+                                    <Label className="class_register_texts">Nome</Label>
+                                    <Input
+                                    type="name"
+                                    placeholder="Insira seu nome"></Input>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label className="class_register_texts">Email</Label>
+                                    <Input
+                                    type="email"
+                                    placeholder="Insira seu email"></Input>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label 
+                                        className="class_register_texts">Senha</Label>
+                                    <Input
+                                        type="password"
+                                        placeholder="Insira sua senha"></Input>
+                                </FormGroup>
+                                <Button 
+                                onClick={()=>alert("botao Registrar pressionado")}
                                 className="class_register_button"
-                                onClick={()=>register_check()}>Registrar</button>
-                        <Link to="/">
-                            <button 
-                                className="class_temconta_button">Ja possui conta?</button></Link>
-                   </div>
-               </div>
+                                >Registrar</Button>
+                                <Button 
+                                role="button"
+                                onClick={()=>alert("botao ja tenho conta pressionado")}
+                                className="class_temconta_button"
+                                >Ja possuo uma conta</Button>
+                            </Form>
+                        </Col>
+                       
+                    </Row>
+                </Container>
             </>
         )
     }

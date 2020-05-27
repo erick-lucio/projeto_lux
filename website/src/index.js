@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Routes from './Routes';
 
 /*css imports */
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
+import './components/index.css';
 
 /*Url config */
 const url = 'localhost';

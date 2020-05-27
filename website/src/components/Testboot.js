@@ -1,9 +1,12 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
+import { Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 /*import css */
 import './Testboot.css';
+
+/*import de imagens */
+import space_gif_img from '../imgs/space_star_img.gif';
 
 const styles = {
   
@@ -19,7 +22,7 @@ const styles = {
     
   },
   mainRow: {
-
+   
     height: '80vh'
 
   },
@@ -36,44 +39,29 @@ const styles = {
       borderRadius: '50%/100px 100px 0 0'
     
   },
-  red:{
-    backgroundColor:'red'
+  Title_constructions:{
+    fontSize:'50px'
   },
-  blue:{  
-        
+  center:{  
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    backgroundImage:'url("/src/imgs/nstagram_icon.png")'
   }
 }
 const Example = (props) => {
   return (
     <>
-    <Container  style={styles.mainRow}>
-      <Row> 
-        <Col xl>
-            <Form style={styles.box_form}>
-                <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" style={styles.input_texts}/>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="examplePassword">Password</Label>
-                    <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" style={styles.input_texts} />
-                </FormGroup>
-                <Button onClick={()=>alert('a')}>Login</Button>
-
-            </Form>
-        </Col>
-
-      </Row>
-     
+    <Container fluid={true} className='main_container'>
+      
+        
+        
+          <h1  className='tittle1'>Em Desenvolvimento</h1>
+        
+        
     </Container>
-    <Container fluid={true}>
-          <Row>         
-              <Col xl="12" className="class_test_1">
-                  fdf
-              </Col>
-          </Row>
 
-        </Container>
     </>
   );
 }

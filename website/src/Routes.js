@@ -18,19 +18,20 @@ export default function Routes(){
     const [] = useState([])
     
     return(
-        <BrowserRouter>     
+        <BrowserRouter >     
     
        
         <Switch>
+            
              <Route exact path="/register" component={Register}/>
-             <Route exact path="/teste" component={Example}/>
-             <Route exact path="/" component={Login}/>       
+             <Route exact path="/login" component={Login}/>
+             <Route exact path="/" component={Example}/>       
                 
              <Route component={PageNotFound}/>
              
-             Figma
+             
         </Switch>
-        
+        <Footer/>
    
         
         
