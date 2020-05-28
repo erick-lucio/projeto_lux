@@ -69,13 +69,22 @@ import urls from '../index';
                                     type="password"
                                     placeholder="Insira sua senha"></Input>
                                 </FormGroup>
-                                <Button 
-                                onClick={()=>alert("botao login pressionado")}
-                                className="class_login_button"
-                                >Login</Button>
-                                <Link 
-                                className="btn btn-secondary class_naotemconta_button"
-                                to="/register">Não possuo uma conta</Link>
+                                <Row className="class_login_row_insideform">
+                                    <Col sm="6" xs="6">
+                                    <Button                                     
+                                        onClick={()=>alert("botao login pressionado")}
+                                        className="class_login_button"
+                                        >Login</Button>
+                                    </Col>
+                                    <Col sm="6" xs="6">
+                                        <Link                                     
+                                        className="btn btn-secondary class_naotemconta_button"
+                                        to="/register">Não possuo uma conta</Link>
+                                    </Col>
+                                   
+                                   
+                                </Row>
+
                             </Form>
                         </Col>
                        

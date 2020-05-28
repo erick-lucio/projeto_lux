@@ -2,8 +2,8 @@
 /* register */
 .class_register_container{ 
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,12 +33,12 @@
 }
 /* input email*/
 .class_register_text_input_email{    
-    margin-bottom: 5vh;
-    margin-top: 4vh;
+    margin-bottom: 5%;
+    margin-top: 4%;
     position: relative;
-    width: 35vw;
-    height: 7vh;
-    font-size: 2em;
+    width: 35%;
+    height: 7%;
+    font-size: 2rem;
     
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.5);
@@ -53,26 +53,72 @@
 }
 /*button register */
 .class_temconta_button{
-    margin-left: 50px;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     text-decoration: none;
+    padding: 10% 1% 10% 1%;
 }
 /*button nao tenho conta */
 .class_register_button{
-    margin-right: 50px;
-    font-size: 1.5em;
+    margin-bottom: 2px;
+    font-size: 1.5rem;
+    
+    padding: 10% 10% 10% 10%;
 }
 /* form do register*/
 .class_register_form{
-    background-color: rgb(48, 46, 46);
-    padding: 10% 10% 20% 10%;
+    background-color: inherit;
+    
+    padding: 10% 0 20% 0;
     text-align: center;
+    min-width: 80%;
+    min-height: 80%;
+    max-height: 80%;
 }
 /*coluna principal */
 .class_register_col_form{
+    border-radius: 1%;
     width: 100%;
+    margin: 10% 0 10% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(48, 46, 46);
+    
 }
 .class_register_row_form{
-    width: 50%;
+
+}
+.class_register_row_insideform{
+    background-color: inherit;
     
+}
+/*responsive fonts */
+@media (max-width: 576px) {  
+    .class_register_text_input_email{
+        font-size: 1rem;
+    }
+    .class_register_button{
+        font-size: 1rem;
+    }
+    .class_temconta_button{
+        font-size: 1rem;
+    }
+    .class_register_text_big_tittle{
+        font-size: 2rem;
+    }
+    .class__texts{
+        font-size: 1rem;
+    }
+}
+@media (min-width: 577px) { 
+
+}
+@media (min-width: 768px) {
+
+}
+@media (min-width: 992px) { 
+
+}
+@media (min-width: 1200px) { 
+
 }

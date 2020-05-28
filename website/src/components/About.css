@@ -1,0 +1,64 @@
+/*container class */
+.class_about_container{
+    background-color: rgb(209, 204, 204);
+   
+}
+/*main row */
+.class_about_main_row{
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.class_about_imgs{
+    width: 50px;
+    border-radius: 90%;
+}
+/* describer text*/
+.class_about_text_info{
+    padding:10px 5px 15px 5px;
+    margin-bottom: 15px;
+    border-left: 3px solid #878a96;
+
+}
+/*each peopel describe */
+.class_about_peope_describe{
+    margin-left: 10px;
+    margin-top: 10px;
+
+}
+/*each collun about */
+.class_about_each_col{
+    background-color: #e9dcdc;
+ 
+    padding-top: 3%;
+    padding-left: 2%;
+    padding-bottom: 1%;
+    border-radius: 2%;
+    text-align: left;
+    word-break: break-all;
+}
+/*Each proffision  */
+.class_about_each_profission{
+    color: #809b7b;
+}
+/*tittle row */
+.class_about_title_row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+/*tittle col */
+.class_about_tittle_col{
+    margin-top: 5%;
+}
+@media (min-width: 577px) {  /*sm */
+    .class_about_each_col{
+        max-width: 28%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+}

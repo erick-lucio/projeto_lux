@@ -9,6 +9,7 @@ import Example from './components/Testboot';
 import {createBrowserHistory} from 'history';
 import Header from './components/Header';
 import MainPage from './components/MainPage';
+import About from './components/About';
 
 /*css imports */
 import './components/index.css';
@@ -28,6 +29,7 @@ export default function Routes(){
              <Route exact path="/main" component={MainPage}/>  
              <Route exact path="/register" component={Register}/>
              <Route exact path="/login" component={Login}/>
+             <Route exact path="/about" component={About}/>
              <Route exact path="/" component={Example}/>       
                 
              <Route component={PageNotFound}/>

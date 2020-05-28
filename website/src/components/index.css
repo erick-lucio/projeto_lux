@@ -36,7 +36,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     background: #ffffff; 
+    overflow-x: hidden; 
 }
+
 body.is-preload *, body.is-preload *:before, body.is-preload *:after {
     -moz-animation: none !important;
     -webkit-animation: none !important;
@@ -119,7 +121,7 @@ html {
 }
   @media screen and (max-width: 1680px) {
     html {
-      font-size: 11pt; } 
+      font-size: 13pt; } 
     }
   @media screen and (max-width: 980px) {
     html {

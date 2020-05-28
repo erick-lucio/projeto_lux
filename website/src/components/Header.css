@@ -4,14 +4,30 @@
     text-align: right;
     font-size: 1.4rem;
     color: #ffffff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+.class_header_menu :hover{
+    font-size: 1.46rem;
 }
 /*title link */
 
 .class_header_title_link{
+    padding-left: 10px;
     text-decoration: none;
     color: #ffffff;
     font-size: 1.6rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+.class_header_title_link :hover{
+    color: #ffffff;
+    font-size: 1.65rem;
+}
+.class_header_title_link :not( :hover ){
+    color: #ffffff;
+ }
+
+
 /*class linha */
 
 .class_header_row{
@@ -20,4 +36,53 @@
     justify-content: center;
     background-color: rgb(3, 14, 26);
     
+}
+/*sidebar header */
+
+.class_header_sidebar{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    border-left: 3px solid rgb(42, 43, 40);
+    border-top: 2px solid rgb(42, 43, 40);
+    border-bottom: 2px solid rgb(42, 43, 40);
+}
+/*close sidebar button */
+.class_header_close_sidebar_button{
+    margin: 0 0 0 5%;
+    font-size: 2rem;
+    
+    
+}
+.class_header_close_sidebar_button :hover{
+    color: #fa0303;
+    font-size: 2.15rem;
+}
+/*each content from sidebar */
+.class_header_each_content{
+    text-align: left;
+    margin-left: 6%;
+    margin-bottom: 10px;
+    border-left: 1px solid #5e5959;
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.class_header_each_content a{
+    text-decoration: none;
+    color: #5e5959;
+    padding-left: 3px;
+    font-size: 1.2rem;
+}
+.class_header_each_content :hover{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.28rem;
 }

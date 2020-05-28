@@ -49,15 +49,24 @@
     color: rgb(155, 146, 146);
     border-bottom: 0.5px solid rgb(155, 146, 146);
 }
+/*ultimo elemento*/
 .class_footer_lists_elements_no_border a{
     padding-top: 3px;
     padding-bottom: 4px;
     color: rgb(155, 146, 146);
     
 }
+.class_footer_lists_elements_no_border :hover{
+    color: rgb(255, 255, 255);
+}
+/*element info */
 .class_footer_lists_elements a{
     color: rgb(155, 146, 146);
 }
+.class_footer_lists_elements :hover{
+    color: rgb(255, 255, 255);
+}
+/*social media links */
 .class_footer_lists_social_media{
     padding-top: 2px;
     padding-bottom: 2px;
@@ -65,6 +74,32 @@
 .class_footer_lists_social_media a{
     color: rgb(155, 146, 146);
 }
+.class_footer_lists_social_media :hover{
+    color: rgb(255, 255, 255);
+}
+.class_footer_email{
+    color: #FFFFFF;
+}
+.class_about_tittle_col h1{
+    font-size: 4rem;
+}
+.class_about_tittle_col span{
+    font-size: 1.5rem;
+}
 @media (min-width: 577px) {  /*sm */
+    .white_color{
+        padding-top: 0;
+    }
 
+}
+@media (max-width: 576px) {  /*xs */
+    .white_color{
+        padding-top: 10px;
+    }
+    .class_about_tittle_col h1{
+        font-size: 3rem;
+    }
+    .class_about_tittle_col span{
+        font-size: 1rem;
+    }
 }

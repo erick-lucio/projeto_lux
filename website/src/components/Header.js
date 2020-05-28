@@ -1,7 +1,7 @@
 /*Component imports */
 import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
-import {Button, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {Button,Collapse, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
 /*functions import */
@@ -15,21 +15,89 @@ import './Header.css';
 import urls from '../index';
 
 export default function Header(){
-
+    function open_sidebar() {
+        document.getElementById("id_header_sidebar").style.width = "25%";
+        //document.getElementById("main").style.marginLeft = "250px";
+      }
+      
+      function close_sidebar() {
+        document.getElementById("id_header_sidebar").style.width = "0";
+        //document.getElementById("main").style.marginLeft= "0";
+      }
     return(
         <>
             <Container fluid={true}>
                 <Row className="class_header_row">
-                    <Col sm="7">
+                    <Col sm="6" xs="6">
                         <Link to="/" className="class_header_title_link">
-                            Pagina
+                           <span>Pagina</span>
+                            
                         </Link>
                     </Col>
-                    <Col sm="5" className="class_header_menu">
-                        Menu
+                    <Col sm="6" xs="6" className="class_header_menu" onClick={()=>open_sidebar()}>
+                        <span>☰ Menu</span>
+                    
                     </Col>
                 </Row>
+                <Container className="class_header_sidebar" id="id_header_sidebar">
+                    <Row>                     
+                        <Col sm="12" xs="12"
+                          className="class_header_close_sidebar_button"
+                          onClick={()=>close_sidebar()}>
+                            <span>x</span>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="class_header_each_content">
+                            <Link to="/main"
+                                onClick={()=>close_sidebar()}> 
+                                Main Page
+                            </Link>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="class_header_each_content">
+                            <Link to="/login"
+                                onClick={()=>close_sidebar()}> 
+                                Login Page
+                            </Link>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="class_header_each_content">
+                            <Link to="/register"
+                                onClick={()=>close_sidebar()}> 
+                                Register Page
+                            </Link>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="class_header_each_content">
+                            <Link to="#"
+                                onClick={()=>close_sidebar()}> 
+                                Nao implementado
+                            </Link>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="class_header_each_content">
+                            <Link to="#"
+                                onClick={()=>close_sidebar()}> 
+                                 Nao implementado
+                            </Link>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="class_header_each_content">
+                            <Link to="#"> 
+                              Nao implementado
+                            </Link>
+                        </Col>
+                    </Row>
+                    
+                </Container>
             </Container>
+            
         </>
     );
 }
