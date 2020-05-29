@@ -16,12 +16,14 @@ import urls from '../index';
 
 export default function Header(){
     function open_sidebar() {
-        document.getElementById("id_header_sidebar").style.width = "25%";
+        document.getElementById("id_header_sidebar").style.width = "auto";
+        //setProperty('--width-sidebar', "25%");
         //document.getElementById("main").style.marginLeft = "250px";
       }
       
       function close_sidebar() {
-        document.getElementById("id_header_sidebar").style.width = "0";
+        document.getElementById("id_header_sidebar").style.width = "0%";
+        //setProperty('--width-sidebar', "0%");
         //document.getElementById("main").style.marginLeft= "0";
       }
     return(
@@ -51,7 +53,7 @@ export default function Header(){
                         <Col className="class_header_each_content">
                             <Link to="/main"
                                 onClick={()=>close_sidebar()}> 
-                                Main Page
+                                Home
                             </Link>
                         </Col>
                     </Row>
@@ -59,15 +61,15 @@ export default function Header(){
                         <Col className="class_header_each_content">
                             <Link to="/login"
                                 onClick={()=>close_sidebar()}> 
-                                Login Page
+                                Log In 
                             </Link>
                         </Col>
                     </Row>
                     <Row>
                         <Col className="class_header_each_content">
-                            <Link to="/register"
+                            <Link to="/signin"
                                 onClick={()=>close_sidebar()}> 
-                                Register Page
+                                Sign in
                             </Link>
                         </Col>
                     </Row>

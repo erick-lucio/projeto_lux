@@ -1,8 +1,8 @@
 /*Component imports */
 import React,{useState} from 'react';
-import {BrowserRouter,Switch,Route} from 'react-router-dom';
+import {BrowserRouter,Switch,Route,MemoryRouter} from 'react-router-dom';
 import Login from './components/Login_Screen';
-import Register from './components/Register_screen';
+import SignIn from './components/SignIn_Screen';
 import PageNotFound from './components/Page404';
 import Footer from './components/Footer';
 import Example from './components/Testboot';
@@ -21,13 +21,16 @@ import './components/index.css';
 export default function Routes(){
     const [] = useState([])
     const history = createBrowserHistory();
+   // window.location.pathname= "/";
+   // console.log()
+    
     return(
-        <BrowserRouter history={history} >     
+        <BrowserRouter history={history} basename="/">     
     
         <Header/>
         <Switch>
              <Route exact path="/main" component={MainPage}/>  
-             <Route exact path="/register" component={Register}/>
+             <Route exact path="/signin" component={SignIn}/>
              <Route exact path="/login" component={Login}/>
              <Route exact path="/about" component={About}/>
              <Route exact path="/" component={Example}/>       

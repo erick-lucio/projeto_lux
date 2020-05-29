@@ -35,7 +35,7 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
-    background: #ffffff; 
+    background-color: rgb(209, 204, 204);
     overflow-x: hidden; 
 }
 

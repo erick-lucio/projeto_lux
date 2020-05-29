@@ -41,19 +41,20 @@
 
 .class_header_sidebar{
     height: 100%;
-    width: 0;
+    --width-sidebar: 0%;
+    width: var(--width-sidebar);    
     position: fixed;
     z-index: 1;
     top: 0;
     right: 0;
     background-color: #111;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition-property: width;
+    transition: 1.5s;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
     border-left: 3px solid rgb(42, 43, 40);
-    border-top: 2px solid rgb(42, 43, 40);
-    border-bottom: 2px solid rgb(42, 43, 40);
+
 }
 /*close sidebar button */
 .class_header_close_sidebar_button{
@@ -69,20 +70,31 @@
 /*each content from sidebar */
 .class_header_each_content{
     text-align: left;
-    margin-left: 6%;
+    margin-left: 20px;
     margin-bottom: 10px;
     border-left: 1px solid #5e5959;
-    
+    font-size: 1rem;    
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
 }
 .class_header_each_content a{
     text-decoration: none;
     color: #5e5959;
-    padding-left: 3px;
     font-size: 1.2rem;
+    white-space: nowrap;
+    margin-right: 40px;
 }
 .class_header_each_content :hover{
     text-decoration: none;
     color: #ffffff;
     font-size: 1.28rem;
+}
+@media (max-width: 576px) {  /*xs */
+    .class_header_each_content{
+        font-size: 0.5rem;
+    }
+    .class_header_sidebar{
+        width: calc(var(--width-sidebar) + var(--width-sidebar));
+        
+    }
 }

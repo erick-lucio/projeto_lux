@@ -11,7 +11,7 @@ import me_img_designer from '../imgs/me_img_designer.png';
 import me_img_manager from '../imgs/me_img_manager.png';
 
 export default function About(){
-
+    window.scrollTo({ top: 0});//vai pro inicio da page
     return(
         <>
             <Container className="class_about_container" fluid={true}>

@@ -11,6 +11,7 @@ import Instagram from '../imgs/Instagran_icon.png';
 
     export default function Footer() {
       document.title = 'Personal Website';
+     
         return (
             <>
               <Container className="class_footer_container" fluid={true}>
