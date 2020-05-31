@@ -1,81 +1,93 @@
 /*Component imports */
 import React,{useState} from 'react';
-import {Link} from 'react-router-dom'
+import { render } from 'react-dom';
+import {Link} from 'react-router-dom';
 import {Button, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
-
-/*css imports */
-import './SignIn_Screen.css';
-   
+import Checkbox_end from './Material_ui/CheckBox';
+import TextArea from './Material_ui/TextArea';
 /*functions import */
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
+/*css imports */
+import './SignIn_Screen.css';
+
 /* import urls*/
 import urls from '../index';
 
-    export default function Register(){
+
+
+/* */
+    export default function Signin() {
         const [cookies, setCookie] = useCookies([]);
-        
-        window.scrollTo({ top: 0});//scrool to top of page
+        //console.log(urls.server_url_port_https,urls.server_url_port_http)
         /*Funçoes do componente */
-        function register_check(){
-            let email_login = document.getElementById('id_input_register_email').value;
-            let name_login = document.getElementById('id_input_register_name').value;    
-            let password_login = document.getElementById('id_input_register_password').value;
-            console.log(email_login,name_login,password_login)
+        function login_create(){
+            let email_login = document.getElementById('id_input_login_email').value;
+            let password_login = document.getElementById('id_input_login_password').value;
+            let data_to_send = {email_login,password_login};
+            console.log(data_to_send)
+            let date = new Date();
+            setCookie('email', email_login, { path: '/' });
+            setCookie('password', password_login, { path: '/' });
             //aplicar regex p gerenciamento das palavras inseridas
-            
+            axios({
+                method: 'get',
+                url: urls.server_url_https,
+                //data: 'formData',
+                //headers: {'Content-type': 'multipart/form-data'}
+                })
+                .then(function (response) {
+                    //handle success
+                    console.log(response);
+                })
+                .catch(function (response) {
+                    //handle error
+                    //console.log(response);
+                });
+
         };
         /* */
+        //document.title = 'Personal Website';
+        window.scrollTo({ top: 0});//vai pro inicio da page
         return (
-            <>  
-                <Container className="class_register_container" fluid={true}>
-                    <Row className="class_register_row_form">
-                       
-                        <Col sm="12" className="class_register_col_form">
-                            <Form className="class_register_form">
-                                <p className="class_register_text_big_tittle">Faço Login na sua Conta</p>
+            <>
+                <Container className="class_signin_container" fluid={true}>
+                    <Row className="class_signin_first_row">
+                        <Col sm="12" className="class_signin_img_col">
+                            <Col sm="12" className="class_signin_opacity_back_img">
+                                 <span className="class_signin_img_col_text">Sign In </span>
+                            </Col>
+                            
+                        </Col>
+                        <Col sm="12">
+                            <Form className="class_signin_form">                
+                                <TextArea  label={'Insira Nome'} className="class_signin_text_input_name"/>              
+                                <TextArea  label={'Insira seu Email'} className="class_signin_text_input_email"/>
+                                <TextArea  label={'Insira sua Senha'} className="class_signin_text_input_password"/>
+                                
                                 <FormGroup>
-                                    <Label className="class_register_texts">Nome</Label>
-                                    <Input
-                                    type="name"
-                                    placeholder="Insira seu nome"></Input>
+                                      
+                                      <Col className="class_signin_formgroup_link_dont_has">
+                                            <Link to="/login" className="class_signin_donthaveaccoutb">Possui uma conta?</Link>
+                                      </Col>   
+                                       <Col className="class_signin_signin_button_col">
+                                            <Button onClick={()=>alert('Login realizado')}>
+                                            Sign In
+                                            </Button>
+                                       </Col>  
+                                    
+                                    
+                                         
                                 </FormGroup>
-                                <FormGroup>
-                                    <Label className="class_register_texts">Email</Label>
-                                    <Input
-                                    type="email"
-                                    placeholder="Insira seu email"></Input>
-                                </FormGroup>
-                                <FormGroup>
-                                    <Label 
-                                        className="class_register_texts">Senha</Label>
-                                    <Input
-                                        type="password"
-                                        placeholder="Insira sua senha"></Input>
-                                </FormGroup>
-                                <Row className="class_register_row_insideform">
-                                    <Col sm="6" xs="6">
-                                        <Button 
-                                        onClick={()=>alert("botao Registrar pressionado")}
-                                        className="class_register_button"
-                                        >Registrar</Button>
-                                    </Col>
-                                    <Col sm="6" xs="6">
-                                         <Link 
-                                        className="btn btn-secondary class_temconta_button"
-                                        to="/login">Ja possuo uma conta</Link>
-                                    </Col>
-                                </Row>
-
-
-                        
+                                
+              
                             </Form>
                         </Col>
-                       
                     </Row>
                 </Container>
             </>
         )
+
     }
+

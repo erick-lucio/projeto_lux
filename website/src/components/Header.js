@@ -49,6 +49,7 @@ export default function Header(){
                             <span>x</span>
                         </Col>
                     </Row>
+                    Obs : Menu temporario
                     <Row>
                         <Col className="class_header_each_content">
                             <Link to="/main"

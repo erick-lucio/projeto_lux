@@ -44,7 +44,7 @@ export default function MainPage(){
                     
                 </Row>
                 <Row className="class_mainpage_row_services">
-                    <Col sm="3" className="class_mainpage_col_each">
+                    <Col sm="3" className="class_mainpage_col_each" >
                        <img src={code_icon}></img>
                        <h3>Websites</h3>
                        <p>Desenvolvemos websites modernos e intuitivos.</p> 
@@ -68,6 +68,7 @@ export default function MainPage(){
                  
                 </Row>
             </Container>
+            
         </>
     );
 }
