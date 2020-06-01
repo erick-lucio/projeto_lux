@@ -18,21 +18,21 @@ var originalText = bytes.toString(CryptoJS.enc.Utf8);
 console.log(originalText); // 'my message'
 
 
-    export function encrypt(){
+    export function encrypt(msg1,key1){
         var CryptoJS = require("crypto-js");
             // Encrypt
-            var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123').toString();
-        return  console.log(ciphertext+" :  msg encriptada")
+            //var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123').toString();
+        return  CryptoJS.AES.encrypt(msg1,key1).toString();
     }
-    export function  decrypt(){
+    export function  decrypt(msg_c,key12){
         var CryptoJS = require("crypto-js");
         var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123').toString();
      
         // Decrypt
-        var bytes  = CryptoJS.AES.decrypt(ciphertext, 'secret key 123');
+        var bytes  = CryptoJS.AES.decrypt(msg_c,key12);
         var originalText = bytes.toString(CryptoJS.enc.Utf8);
         
-        return  console.log(originalText); // 'my message'
+        return  originalText; // 'my message'
     
     }
     

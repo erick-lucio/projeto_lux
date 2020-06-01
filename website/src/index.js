@@ -7,11 +7,7 @@ import { createBrowserHistory } from "history";
 import './components/index.css';
 
 
-import * as sec from './Security';
 
-sec.encrypt()
-
-sec.decrypt()
 
 /*css imports */
 //import 'bootstrap/dist/css/bootstrap.min.css';

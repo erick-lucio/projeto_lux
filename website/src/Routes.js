@@ -10,6 +10,7 @@ import {createBrowserHistory} from 'history';
 import Header from './components/Header';
 import MainPage from './components/MainPage';
 import About from './components/About';
+import Test_page from './components/Test_page';
 
 /*css imports */
 import './components/index.css';
@@ -29,6 +30,7 @@ export default function Routes(){
     
         <Header/>
         <Switch>
+             <Route exact path="/pagina_teste" component={Test_page}/>  
              <Route exact path="/main" component={MainPage}/>  
              <Route exact path="/signin" component={SignIn}/>
              <Route exact path="/login" component={Login}/>
