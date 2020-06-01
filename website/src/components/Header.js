@@ -32,7 +32,7 @@ export default function Header(){
                 <Row className="class_header_row">
                     <Col sm="6" xs="6">
                         <Link to="/" className="class_header_title_link">
-                           <span>Pagina</span>
+                           <span>KonohaDev</span>
                             
                         </Link>
                     </Col>

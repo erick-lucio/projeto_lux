@@ -7,16 +7,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    min-height: 700px;
     background-color: rgb(209, 204, 204);
 }
 /* first row*/
 .class_login_first_row{
     height: 80%;
-    width: 400px;
+    max-width: 400px;
     background-color: #dbcbcb;
     border-radius: 1%;
     background-color: rgb(223, 213, 233);
+    
 }
 /* inputs texto*/
 
@@ -33,7 +34,7 @@
 }
 .class_login_formGroup_checkbox{
  text-align: left;
- margin-left: 20px;
+ margin-left: 10px;
 }
 /*butao n tem conta */
 .class_login_donthaveaccoutb{
@@ -81,7 +82,7 @@
 .class_login_opacity_back_img{
     font-family: 'Times New Roman', Times, serif;
     color: rgb(250, 244, 244);
-    width: 400px;
+    width: 100vw;
     height: 100%;
     opacity: 0.85;
     background-color: rgb(105, 109, 109);
