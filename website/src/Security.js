@@ -1,8 +1,40 @@
-import 'aes-js';
+import sha256 from 'crypto-js/sha256';
+import hmacSHA512 from 'crypto-js/hmac-sha512';
+import Base64 from 'crypto-js/enc-base64';
+ 
+//const message, nonce, path, privateKey; // ...
+//const hashDigest = sha256(nonce + message);
+//const hmacDigest = Base64.stringify(hmacSHA512(path + hashDigest, privateKey));
 
-var key_128 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-var key_192 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-               16, 17, 18, 19, 20, 21, 22, 23];
-var key_256 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-               16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-               29, 30, 31];
+var CryptoJS = require("crypto-js");
+ 
+// Encrypt
+var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123').toString();
+ 
+// Decrypt
+var bytes  = CryptoJS.AES.decrypt(ciphertext, 'secret key 123');
+var originalText = bytes.toString(CryptoJS.enc.Utf8);
+ 
+console.log(originalText); // 'my message'
+
+
+    export function encrypt(){
+        var CryptoJS = require("crypto-js");
+            // Encrypt
+            var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123').toString();
+        return  console.log(ciphertext+" :  msg encriptada")
+    }
+    export function  decrypt(){
+        var CryptoJS = require("crypto-js");
+        var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123').toString();
+     
+        // Decrypt
+        var bytes  = CryptoJS.AES.decrypt(ciphertext, 'secret key 123');
+        var originalText = bytes.toString(CryptoJS.enc.Utf8);
+        
+        return  console.log(originalText); // 'my message'
+    
+    }
+    
+
+

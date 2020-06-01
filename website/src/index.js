@@ -4,10 +4,18 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Routes from './Routes';
 import { createBrowserHistory } from "history";
+import './components/index.css';
+
+
+import * as sec from './Security';
+
+sec.encrypt()
+
+sec.decrypt()
 
 /*css imports */
 //import 'bootstrap/dist/css/bootstrap.min.css';
-import './components/index.css';
+
 //constantes historico
 const customHistory = createBrowserHistory();
 
@@ -21,6 +29,7 @@ const server_url_http = 'http://'+url;
 //
 
 export default {server_url_port_https,server_url_port_http,server_url_https,server_url_http}
+//
 
 
 
