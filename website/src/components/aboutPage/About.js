@@ -6,9 +6,9 @@ import { Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 're
 import './About.css';
 
 /* Img imports*/
-import me_img_developer from '../imgs/me_img_developer.png';
-import me_img_designer from '../imgs/me_img_designer.png';
-import me_img_manager from '../imgs/me_img_manager.png';
+import me_img_developer from '../../imgs/me_img_developer.png';
+import me_img_designer from '../../imgs/me_img_designer.png';
+import me_img_manager from '../../imgs/me_img_manager.png';
 
 export default function About(){
     window.scrollTo({ top: 0});//vai pro inicio da page

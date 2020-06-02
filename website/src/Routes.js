@@ -1,19 +1,19 @@
 /*Component imports */
 import React,{useState} from 'react';
 import {BrowserRouter,Switch,Route,MemoryRouter} from 'react-router-dom';
-import Login from './components/Login_Screen';
-import SignIn from './components/SignIn_Screen';
-import PageNotFound from './components/Page404';
-import Footer from './components/Footer';
-import Example from './components/Testboot';
+import Login from './components/loginPage/Login_Screen';
+import SignIn from './components/signInPage/SignIn_Screen';
+import PageNotFound from './components/404Page/Page404';
+import Footer from './components/footer/Footer';
+import Example from './components/startPage/Testboot';
 import {createBrowserHistory} from 'history';
-import Header from './components/Header';
-import MainPage from './components/MainPage';
-import About from './components/About';
-import Test_page from './components/Test_page';
+import Header from './components/header/Header';
+import MainPage from './components/mainPage/MainPage';
+import About from './components/aboutPage/About';
+import Test_page from './components/testPage/Test_page';
 
 /*css imports */
-import './components/index.css';
+import './index.css';
 
 /*functions import */
 

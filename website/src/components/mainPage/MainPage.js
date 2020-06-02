@@ -12,14 +12,14 @@ import { useCookies } from 'react-cookie';
 import './MainPage.css';
 
 /* import urls*/
-import urls from '../index';
+import urls from '../../index';
 
 /*import imgs */
-import mobile_icon from '../imgs/mobile_img_icon.png';
-import payment_icon from '../imgs/payment_img_icon.png';
-import systems_icon from '../imgs/gears_img_icon.png';
-import code_icon from '../imgs/code_img_icon.png';
-import img_banner1 from '../imgs/img_main_banner.png';
+import mobile_icon from '../../imgs/mobile_img_icon.png';
+import payment_icon from '../../imgs/payment_img_icon.png';
+import systems_icon from '../../imgs/gears_img_icon.png';
+import code_icon from '../../imgs/code_img_icon.png';
+import img_banner1 from '../../imgs/img_main_banner.png';
 
 
 export default function MainPage(){

@@ -6,7 +6,7 @@ import { Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 're
 import './Testboot.css';
 
 /*import de imagens */
-import space_gif_img from '../imgs/space_star_img.gif';
+
 
 
 const Example = (props) => {

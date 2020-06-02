@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Routes from './Routes';
 import { createBrowserHistory } from "history";
-import './components/index.css';
+import './index.css';
 
 
 

@@ -3,26 +3,26 @@ import React,{useState} from 'react';
 import { render } from 'react-dom';
 import {Link} from 'react-router-dom';
 import {Button, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import Checkbox_end from './Material_ui/CheckBox';
-import TextArea from './Material_ui/TextArea';
+import Checkbox_end from '../material_ui/CheckBox';
+import TextArea from '../material_ui/TextArea';
 /*functions import */
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
 /*css imports */
-import './SignIn_Screen.css';
+import './Login_Screen.css';
 
 /* import urls*/
-import urls from '../index';
+import urls from '../../index';
 
 
 
 /* */
-    export default function Signin() {
+    export default function Login() {
         const [cookies, setCookie] = useCookies([]);
         //console.log(urls.server_url_port_https,urls.server_url_port_http)
         /*Funçoes do componente */
-        function login_create(){
+        function login_check(){
             let email_login = document.getElementById('id_input_login_email').value;
             let password_login = document.getElementById('id_input_login_password').value;
             let data_to_send = {email_login,password_login};
@@ -52,28 +52,28 @@ import urls from '../index';
         window.scrollTo({ top: 0});//vai pro inicio da page
         return (
             <>
-                <Container className="class_signin_container" fluid={true}>
-                    <Row className="class_signin_first_row">
-                        <Col sm="12" className="class_signin_img_col">
-                            <Col sm="12" className="class_signin_opacity_back_img">
-                                 <span className="class_signin_img_col_text">Sign In </span>
+                <Container className="class_login_container" fluid={true}>
+                    <Row className="class_login_first_row">
+                        <Col sm="12" className="class_login_img_col">
+                            <Col className="class_login_opacity_back_img">
+                                 <span className="class_login_img_col_text">Log In </span>
                             </Col>
                             
                         </Col>
                         <Col sm="12">
-                            <Form className="class_signin_form">                
-                                <TextArea  label={'Insira Nome'} className="class_signin_text_input_name"/>              
-                                <TextArea  label={'Insira seu Email'} className="class_signin_text_input_email"/>
-                                <TextArea  label={'Insira sua Senha'} className="class_signin_text_input_password"/>
-                                
+                            <Form className="class_login_form">                              
+                                <TextArea  label={'Insira seu Email'} className="class_login_text_input_email"/>
+                                <TextArea  label={'Insira seu Senha'} className="class_login_text_input_password"/>
                                 <FormGroup>
-                                      
-                                      <Col className="class_signin_formgroup_link_dont_has">
-                                            <Link to="/login" className="class_signin_donthaveaccoutb">Possui uma conta?</Link>
+                                      <Col  className="class_login_formGroup_checkbox">
+                                            <Checkbox_end label={'Salvar login'}/> 
+                                      </Col>
+                                      <Col className="class_login_formgroup_link_dont_has">
+                                            <Link to="/signin" className="class_login_donthaveaccoutb">Nao possui uma conta?</Link>
                                       </Col>   
-                                       <Col className="class_signin_signin_button_col">
+                                       <Col className="class_login_login_button_col">
                                             <Button onClick={()=>alert('Login realizado')}>
-                                            Sign In
+                                            Login
                                             </Button>
                                        </Col>  
                                     

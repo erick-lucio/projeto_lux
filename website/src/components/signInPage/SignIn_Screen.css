@@ -68,7 +68,7 @@
 /*img col */
 .class_signin_img_col{
     height: 172px;
-    background-image: url('../imgs/img_desk.png');
+    background-image: url('../../imgs/img_desk.png');
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;        

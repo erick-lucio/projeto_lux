@@ -4,7 +4,7 @@ import { Button,Container, Row, Col, Form, FormGroup, Label, Input, FormText } f
 
 /*import css */
 import './Test_page.css';
-import * as security from '../Security';
+import * as security from '../../Security';
 
 
 /*import de imagens */

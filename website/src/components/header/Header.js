@@ -12,7 +12,7 @@ import { useCookies } from 'react-cookie';
 import './Header.css';
 
 /* import urls*/
-import urls from '../index';
+import urls from '../../index';
 
 export default function Header(){
     function open_sidebar() {

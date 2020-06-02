@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 import './Footer.css';
 
 /* Img imports*/
-import Instagram from '../imgs/Instagran_icon.png';
+import Instagram from '../../imgs/Instagran_icon.png';
 
     export default function Footer() {
       document.title = 'Personal Website';
