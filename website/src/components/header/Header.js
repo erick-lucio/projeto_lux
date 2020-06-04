@@ -76,9 +76,9 @@ export default function Header(){
                     </Row>
                     <Row>
                         <Col className="class_header_each_content">
-                            <Link to="#"
+                            <Link to="/pagina_teste"
                                 onClick={()=>close_sidebar()}> 
-                                Nao implementado
+                                Test page
                             </Link>
                         </Col>
                     </Row>
@@ -92,7 +92,8 @@ export default function Header(){
                     </Row>
                     <Row>
                         <Col className="class_header_each_content">
-                            <Link to="#"> 
+                            <Link to="#"
+                               onClick={()=>close_sidebar()}> 
                               Nao implementado
                             </Link>
                         </Col>

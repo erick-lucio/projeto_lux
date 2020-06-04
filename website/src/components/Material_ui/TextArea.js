@@ -20,7 +20,7 @@ export default function TextArea(props) {
       <div>
         <TextField
           error={false}
-          id="standard-error-helper-text"
+          id={props.id}
           label={props.label}
           helperText={props.helperText}
           placeholder={props.placeholder}

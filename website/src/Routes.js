@@ -11,7 +11,7 @@ import Header from './components/header/Header';
 import MainPage from './components/mainPage/MainPage';
 import About from './components/aboutPage/About';
 import Test_page from './components/testPage/Test_page';
-
+import micael from './components/testPage/aaa';
 
 /*css imports */
 import './index.css';
@@ -32,6 +32,7 @@ export default function Routes(){
         
             <Header/>
             <Switch>
+                 
                 <Route exact path="/pagina_teste" component={Test_page}/>  
                 <Route exact path="/main" component={MainPage}/>  
                 <Route exact path="/signin" component={SignIn}/>

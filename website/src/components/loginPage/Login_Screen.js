@@ -17,9 +17,11 @@ import './Login_Screen.css';
 import urls from '../../index';
 
 
-//
+
 /* */
     export default function Login() {
+        const store_data = useSelector(state => state.login)
+        const dispatch_func= useDispatch();
         const [cookies, setCookie] = useCookies([]);
         //console.log(urls.server_url_port_https,urls.server_url_port_http)
         /*Funçoes do componente */
@@ -48,6 +50,16 @@ import urls from '../../index';
                 });
 
         };
+        function login_teste(){
+            console.log(document.getElementById("login_email_input").value)
+    
+            dispatch_func({
+                type:'LOGIN_',
+                logged:"true" ,
+                key_auth:"S7YHFD786YF7'",
+                name:document.getElementById("login_email_input").value
+              })
+        }
         /* */
         //document.title = 'Personal Website';
         window.scrollTo({ top: 0});//vai pro inicio da page
@@ -63,7 +75,7 @@ import urls from '../../index';
                         <Col sm="12">
                             <Form className="class_login_form">  
                                 <span className="class_login_Tittle">Login</span>                            
-                                <TextArea  label={'Insira seu Email'} className="class_login_text_input_email"/>
+                                <TextArea  label={'Insira seu Email'} className="class_login_text_input_email" id={'login_email_input'}/>
                                 <TextArea  label={'Insira seu Senha'} className="class_login_text_input_password"/>
                                 
                                       <Col  className="class_login_formGroup_checkbox">
@@ -73,7 +85,7 @@ import urls from '../../index';
                                             <Link to="/signin" className="class_login_donthaveaccoutb">Nao possui uma conta?</Link>
                                       </Col>   
                                        <Col className="class_login_login_button_col">
-                                            <Button onClick={()=>alert('Login realizado')}>
+                                            <Button onClick={()=>login_teste()}>
                                             Login
                                             </Button>
                                        </Col>  
