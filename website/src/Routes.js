@@ -12,44 +12,47 @@ import MainPage from './components/mainPage/MainPage';
 import About from './components/aboutPage/About';
 import Test_page from './components/testPage/Test_page';
 
+
 /*css imports */
 import './index.css';
 
 /*functions import */
-
-
+import store from './store/index';
+import { Provider } from 'react-redux'
 
 export default function Routes(){
     const [] = useState([])
     const history = createBrowserHistory();
    // window.location.pathname= "/";
    // console.log()
-    
+
     return(
-        <BrowserRouter history={history} basename="/">     
-    
-        <Header/>
-        <Switch>
-             <Route exact path="/pagina_teste" component={Test_page}/>  
-             <Route exact path="/main" component={MainPage}/>  
-             <Route exact path="/signin" component={SignIn}/>
-             <Route exact path="/login" component={Login}/>
-             <Route exact path="/about" component={About}/>
-             <Route exact path="/" component={Example}/>       
+        <Provider store={store}>
+            <BrowserRouter history={history} basename="/">     
+        
+            <Header/>
+            <Switch>
+                <Route exact path="/pagina_teste" component={Test_page}/>  
+                <Route exact path="/main" component={MainPage}/>  
+                <Route exact path="/signin" component={SignIn}/>
+                <Route exact path="/login" component={Login}/>
+                <Route exact path="/about" component={About}/>
+                <Route exact path="/" component={Example}/>       
+                    
+                <Route component={PageNotFound}/>
                 
-             <Route component={PageNotFound}/>
-             
-             
-        </Switch>
-        <Footer/>
-   
-        
-        
-        
-        
-        
-        
-        </BrowserRouter>                        
+                
+            </Switch>
+            <Footer/>
+    
+            
+            
+            
+            
+            
+            
+            </BrowserRouter>     
+        </Provider>                  
          );
   
 }

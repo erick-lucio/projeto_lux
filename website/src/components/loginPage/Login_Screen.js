@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import {Button, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import Checkbox_end from '../material_ui/CheckBox';
 import TextArea from '../material_ui/TextArea';
+import {useSelector,useDispatch}from 'react-redux'
 /*functions import */
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
@@ -16,7 +17,7 @@ import './Login_Screen.css';
 import urls from '../../index';
 
 
-
+//
 /* */
     export default function Login() {
         const [cookies, setCookie] = useCookies([]);
@@ -55,16 +56,16 @@ import urls from '../../index';
                 <Container className="class_login_container" fluid={true}>
                     <Row className="class_login_first_row">
                         <Col sm="12" className="class_login_img_col">
-                            <Col className="class_login_opacity_back_img">
-                                 <span className="class_login_img_col_text">Log In </span>
-                            </Col>
+                            
                             
                         </Col>
+
                         <Col sm="12">
-                            <Form className="class_login_form">                              
+                            <Form className="class_login_form">  
+                                <span className="class_login_Tittle">Login</span>                            
                                 <TextArea  label={'Insira seu Email'} className="class_login_text_input_email"/>
                                 <TextArea  label={'Insira seu Senha'} className="class_login_text_input_password"/>
-                                <FormGroup>
+                                
                                       <Col  className="class_login_formGroup_checkbox">
                                             <Checkbox_end label={'Salvar login'}/> 
                                       </Col>
@@ -79,7 +80,7 @@ import urls from '../../index';
                                     
                                     
                                          
-                                </FormGroup>
+                               
                                 
               
                             </Form>

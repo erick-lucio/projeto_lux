@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button,Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
+import {useSelector,useDispatch}from 'react-redux'
 /*import css */
 import './Test_page.css';
 import * as security from '../../Security';
@@ -10,10 +10,18 @@ import * as security from '../../Security';
 /*import de imagens */
 
 
+///
+
+
+import store  from '../../store/index';
+
+
 
 const Test_page = (props) => {
+    const store_data = useSelector(state => state.login)
+    const dispatch_func= useDispatch();
     //sec.encrypt()
-
+    
     //sec.decrypt()
     function criptografa(){
         let text = document.getElementById("text_input_test").value;
@@ -32,33 +40,35 @@ const Test_page = (props) => {
         
         document.getElementById("text_input_test14").value = security.decrypt(text1,key1);
     }
+    function teste1(){
+      let teste5 = store.getState()
+      console.log(teste5.login.name) 
+      
+    }
+    function teste2(){
+      dispatch_func({
+        type:'LOGIN_',
+        logged:"true" ,
+        key_auth:"marcarath d_ f'",
+        name:document.getElementById("text_input_test").value
+      })
+    
+    }
+    function teste3(){
+
+  }
   return (
     <>
     <Container fluid={true} className='class_test_page_container1'>
         <Input type="text" id="text_input_test">
         
         </Input>
-        <Input type="text" id="text_input_test1">
-        
-        </Input>
-        <Input type="text" id="text_input_test2">
-        
-        </Input>
-        <Button onClick={()=>criptografa()}>
+        <Button onClick={()=>teste1()}>LISTA ESTADOS
 
         </Button>
-
-        <Input type="text" id="text_input_test13">
-        
-        </Input>
-        <Input type="text" id="text_input_test14">
-        
-        </Input>
-        <Button onClick={()=>descriptografa()}>
-
+        <Button onClick={()=>teste2()}>pega o nome do input
         </Button>
-        
-          
+
         
         
     </Container>
@@ -67,4 +77,4 @@ const Test_page = (props) => {
   );
 }
 
-export default Test_page;
+export default Test_page

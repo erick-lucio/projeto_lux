@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import {Button, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import Checkbox_end from '../material_ui/CheckBox';
 import TextArea from '../material_ui/TextArea';
+import {useSelector,useDispatch}from 'react-redux'
 /*functions import */
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
@@ -55,13 +56,12 @@ import urls from '../../index';
                 <Container className="class_signin_container" fluid={true}>
                     <Row className="class_signin_first_row">
                         <Col sm="12" className="class_signin_img_col">
-                            <Col sm="12" className="class_signin_opacity_back_img">
-                                 <span className="class_signin_img_col_text">Sign In </span>
-                            </Col>
+                          
                             
                         </Col>
                         <Col sm="12">
-                            <Form className="class_signin_form">                
+                            <Form className="class_signin_form">      
+                                <span className="class_signin_Tittle">Sign In </span>
                                 <TextArea  label={'Insira Nome'} className="class_signin_text_input_name"/>              
                                 <TextArea  label={'Insira seu Email'} className="class_signin_text_input_email"/>
                                 <TextArea  label={'Insira sua Senha'} className="class_signin_text_input_password"/>

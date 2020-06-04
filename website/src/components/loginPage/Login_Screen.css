@@ -3,7 +3,7 @@
 .class_login_container{ 
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,8 +12,10 @@
 }
 /* first row*/
 .class_login_first_row{
-    height: 80%;
+    min-height: 80%;
+    padding-bottom: 10px;
     max-width: 400px;
+    min-width: 200px;
     background-color: #dbcbcb;
     border-radius: 1%;
     background-color: rgb(223, 213, 233);
@@ -67,31 +69,40 @@
 }
 /*img col */
 .class_login_img_col{
-    height: 172px;
+    height: 210px;
     background-image: url('../../imgs/img_desk.png');
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
-    background-position: center center;        
+    background-position: center center;     
     width: 100%;    
     font-size: 2.5rem; 
 }
-.class_login_img_col_text{
+.class_login_Tittle{
+    font-size: 3rem;
+}
 
+@media (max-width: 576px) {  /*xs */
+    .class_login_first_row{
+        width: 95%;
+    }
+
+}
+
+@media (min-width: 577px) {  /*sm */
+    .class_login_first_row{
+        width: 70%;
+    }
+
+    
+} 
+@media (min-width: 768px) {  /*md */
   
 }
-.class_login_opacity_back_img{
-    font-family: 'Times New Roman', Times, serif;
-    color: rgb(250, 244, 244);
-    width: 100vw;
-    height: 100%;
-    opacity: 0.85;
-    background-color: rgb(105, 109, 109);
-    align-items: center;
-    text-align: center;
-    flex-direction: row;
-    display: flex;
-    justify-content: center;
-    max-width: 400px;
-    margin-left: -15px;
-    margin-right: -15px;
+
+@media (min-width: 992px) { /* lg*/ 
+
 }
+@media (min-width:1200) {  /*xl */
+
+} 
+  
