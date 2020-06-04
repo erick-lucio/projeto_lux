@@ -20,6 +20,8 @@ import urls from '../../index';
 
 /* */
     export default function Signin() {
+        const store_data = useSelector(state => state.login)
+        const dispatch_func= useDispatch();
         const [cookies, setCookie] = useCookies([]);
         //console.log(urls.server_url_port_https,urls.server_url_port_http)
         /*Funçoes do componente */
@@ -41,6 +43,12 @@ import urls from '../../index';
                 .then(function (response) {
                     //handle success
                     console.log(response);
+                    dispatch_func({
+                        type:'LOGIN_',
+                        logged:"true" ,
+                        key_auth:"S7YHFD786YF7'",
+                        name:""
+                      })
                 })
                 .catch(function (response) {
                     //handle error

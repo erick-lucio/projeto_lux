@@ -43,6 +43,12 @@ import urls from '../../index';
                 .then(function (response) {
                     //handle success
                     console.log(response);
+                    dispatch_func({
+                        type:'LOGIN_',
+                        logged:"true" ,
+                        key_auth:"S7YHFD786YF7'",
+                        name:""
+                      })
                 })
                 .catch(function (response) {
                     //handle error
@@ -50,16 +56,7 @@ import urls from '../../index';
                 });
 
         };
-        function login_teste(){
-            console.log(document.getElementById("login_email_input").value)
-    
-            dispatch_func({
-                type:'LOGIN_',
-                logged:"true" ,
-                key_auth:"S7YHFD786YF7'",
-                name:document.getElementById("login_email_input").value
-              })
-        }
+
         /* */
         //document.title = 'Personal Website';
         window.scrollTo({ top: 0});//vai pro inicio da page
@@ -85,7 +82,7 @@ import urls from '../../index';
                                             <Link to="/signin" className="class_login_donthaveaccoutb">Nao possui uma conta?</Link>
                                       </Col>   
                                        <Col className="class_login_login_button_col">
-                                            <Button onClick={()=>login_teste()}>
+                                            <Button onClick={()=>login_check()}>
                                             Login
                                             </Button>
                                        </Col>  
