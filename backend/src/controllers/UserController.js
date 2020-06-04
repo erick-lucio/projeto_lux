@@ -2,6 +2,12 @@ const User = require('../models/Users');
 const { Op } = require("sequelize");
 
 module.exports = {
+  async returnAllUsersteste(req, res) {
+    console.log(req.body);
+    
+    //console.log(users);
+    return res.status(200).json("alo");
+  },
   async returnAllUsers(req, res) {
     let users = await User.findAll({
       attributes:['name_user','password_user','email','permissionLvl']

@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const app = express();
 const helmet = require('helmet')
 
-require('./database');
+//require('./database');
 
 app.use(bodyParser.json());
 app.use(cors());

@@ -5,13 +5,22 @@ const DefaultController = require('./controllers/DefaultController');
 const routes = express.Router();
 
 routes.get('/', DefaultController.defaultFunction);
+routes.get('/example', function (req, res, next) {
+    
+    if(5>3){
+    req.body.name="g5"
+    next();
+    }else{
+        console.log("N entrou")
+    }
+    
+  },UserController.returnAllUsersteste);//UserController.returnAllUsers);
+//routes.get('/alluser', UserController.returnAllUsers);
+//routes.post('/cruser', UserController.createUser);
+//routes.get('/sruser/:valuePassword/:valueEmail', UserController.searchUser);
 
-routes.get('/alluser', UserController.returnAllUsers);
-routes.post('/cruser', UserController.createUser);
-routes.get('/sruser/:valuePassword/:valueEmail', UserController.searchUser);
-
-routes.get('/sr100chats', ChatController.searchLast100Messages);
-routes.post('/inschat', ChatController.insertChatMessage);
+//routes.get('/sr100chats', ChatController.searchLast100Messages);
+//routes.post('/inschat', ChatController.insertChatMessage);
 
 
 
