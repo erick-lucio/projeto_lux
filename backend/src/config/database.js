@@ -3,12 +3,10 @@ module.exports  = ({
   host: 'localhost',
   username: 'root',
   password: 'password',
-  database: 'server_node_erick_mysql',
+  database: 'mySqlServerNode',
   define:{
       timestamp:true,
-      undescored:true,
-      
-  }
-  
+      undescored:true,      
+  }  
 })
 

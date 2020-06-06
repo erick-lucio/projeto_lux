@@ -1,4 +1,4 @@
-const Users = require('../models/Users');
+const Usuarios = ('../models/Usuarios.js');
 const Chat = require('../models/Chat');
 const { Op } = require("sequelize");
 
@@ -11,7 +11,7 @@ module.exports = {
 
       //},
       include:[{
-       model: Users,
+       model: Usuarios,
        
         attributes:[
           'name_user'
@@ -32,7 +32,7 @@ module.exports = {
   async insertChatMessage(req,res){
     
     let {message,name}= req.body;
-    let user_find = await Users.findAll({
+    let user_find = await Usuarios.findAll({
       attributes:['id'],
         where:[{
           name_user:name
@@ -46,7 +46,7 @@ module.exports = {
         user_id:user_find[0].id,      
                  
         include:[{
-          model:Users,
+          model:Usuarios,
   
         }]
       });

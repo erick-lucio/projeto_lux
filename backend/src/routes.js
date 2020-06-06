@@ -4,17 +4,24 @@ const ChatController = require('./controllers/ChatController');
 const DefaultController = require('./controllers/DefaultController');
 const routes = express.Router();
 
-routes.get('/', DefaultController.defaultFunction);
-routes.get('/example', function (req, res, next) {
-    
-    if(5>3){
-    req.body.name="g5"
+  //REALIZA CONFIGURAÇÃO/ INSERTS INICIAIS PADROES
+  routes.get('/config', function (req, res, next) {
+      //testa header
+      next();
+  },DefaultController.configDatabase);
+  //
+  //RETORNA TODOS OS USUARIOS
+  routes.get('/users', function (req, res, next) {
+      //testa header 
+
     next();
-    }else{
-        console.log("N entrou")
-    }
-    
-  },UserController.returnAllUsersteste);//UserController.returnAllUsers);
+  },UserController.returnUsers);//UserController.returnAllUsers);
+  //
+  //Adicionar Usuario
+  routes.post('/users', function (req, res, next) {
+ //testa header
+    next();
+  },UserController.createUser);
 //routes.get('/alluser', UserController.returnAllUsers);
 //routes.post('/cruser', UserController.createUser);
 //routes.get('/sruser/:valuePassword/:valueEmail', UserController.searchUser);

@@ -2,37 +2,33 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', { 
+    return queryInterface.createTable('cidade', { 
       id: {
         type:Sequelize.INTEGER,
         primaryKey:true,
         autoIncrement:true,
         allowNull:false
-      } ,
-      password_user:{
+      },
+      name:{
         type:Sequelize.STRING,
         allowNull:false
       },
-      name_user:{
-        type:Sequelize.STRING,
-        allowNull:false
-      },
-      email:{
-        type:Sequelize.STRING,
-        allowNull:false
-      },
-      permissionLvl:{
+      estado_id:{
         type:Sequelize.INTEGER,
         allowNull:false,
-        defaultValue:0
-      },
+        references: { model: 'estado', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+       },  
       createdAt:{
         type:Sequelize.DATE,
-        allowNull:true
+        allowNull:false,
+        defaultValue:Sequelize.fn('now')
       },
       updatedAt:{
         type:Sequelize.DATE,
-        allowNull:true
+        allowNull:false,
+        defaultValue:Sequelize.fn('now')
       }
 
 
@@ -40,6 +36,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('users');
+    return queryInterface.dropTable('cidade');
   }
 };
