@@ -2,6 +2,7 @@ const INITIAL_STATE = {
     logged:'false',
     key_auth:'none',
     name:'none',
+    sucessfull_signin:'false'
 
 }
 export default function loginReducer(state = INITIAL_STATE,action = {}){
@@ -22,6 +23,11 @@ export default function loginReducer(state = INITIAL_STATE,action = {}){
             name:'none',
             
         }
+        case "SIGNIN_":
+            return{
+                ...state,
+                sucessfull_signin:action.sucessfull_signin
+            }
         default:
     return state;
     }

@@ -11,7 +11,7 @@ import Header from './components/header/Header';
 import MainPage from './components/mainPage/MainPage';
 import About from './components/aboutPage/About';
 import Test_page from './components/testPage/Test_page';
-import micael from './components/testPage/aaa';
+import Logs from './components/logs/Logs';
 
 /*css imports */
 import './index.css';
@@ -39,7 +39,7 @@ export default function Routes(){
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/about" component={About}/>
                 <Route exact path="/" component={Example}/>       
-                    
+                <Route exact path="/logs" component={Logs}/>      
                 <Route component={PageNotFound}/>
                 
                 

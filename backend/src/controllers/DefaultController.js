@@ -2,28 +2,38 @@ const Usuarios = require('../models/Usuarios.js');
 const Cidade = require('../models/Cidade.js');
 const Estado = require('../models/Estado.js');
 const Chat = require('../models/Chat.js');
+const bcrypt = require("bcrypt")
 const estados = [
   {name:"AC"},{name:"AL"},{name:"AP"},{name:"AM"},{name:"BA"},{name:"CE"},{name:"DF"},{name:"ES"},{name:"GO"},{name:"MA"},{name:"MT"},
   {name:"MS"},{name:"MG"},{name:"PA"},{name:"PB"},{name:"PR"},{name:"PE"},{name:"PI"},{name:"RJ"},{name:"RN"},{name:"RS"},{name:"RO"},
   {name:"RR"},{name:"SC"},{name:"SP"},{name:"SE"},{name:"TO"},
 ]
 module.exports ={
-    async defaultFunction(req, res) {          
-        let html_test = '';
-        html_test +="<html><body><h1>TESTE NODE</h1><h3>Podemos upar o backend e o fornt no heroku\
-        claro mudando o link com um dominio comprado,e tenho que ver como q vou garantir p que o app sempre rode na mesma porta\
-        </h3></body> </html>"
-      
-        res.send(html_test) ;
-      },
-      async configDatabase(req, res) {          
-          const insert_states = await Estado.bulkCreate(estados);
-          const insert_users = await Usuarios.create({
-            name:"admin",
-            password:"erickzim",
-            email:"email@email.com",
-            permission:"2"
-          })
+    async configDatabase(req, res) {    
+        const verify_state = await Estado.findAll({
+            atributes:['name'],
+            where:{
+                name:"AC"
+            }
+        })
+        if(verify_state.length == 0){
+            const insert_states = await Estado.bulkCreate(estados);
+        }
+        const verify_super_admin = await Usuarios.findAll({
+            atributes:['email'],
+            where:{
+                email:"email@email.co"
+            }
+        })
+        if(verify_super_admin.length == 0){
+            const insert_users = await Usuarios.create({
+                name:"adminErick",
+                password:await bcrypt.hash("yuri20323", 10),
+                email:"email@email.com",
+                permission:"2"
+            })
+        }
+
         res.status(200).send("Sucess") ;
       },
 }

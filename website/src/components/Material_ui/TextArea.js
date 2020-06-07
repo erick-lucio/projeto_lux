@@ -16,7 +16,7 @@ export default function TextArea(props) {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <div className={classes.root} noValidate autoComplete="off">
       <div>
         <TextField
           error={false}
@@ -27,6 +27,6 @@ export default function TextArea(props) {
         />
       </div>
 
-    </form>
+    </div>
   );
 }

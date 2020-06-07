@@ -84,9 +84,9 @@ export default function Header(){
                     </Row>
                     <Row>
                         <Col className="class_header_each_content">
-                            <Link to="#"
+                            <Link to="/logs"
                                 onClick={()=>close_sidebar()}> 
-                                 Nao implementado
+                                 Logs
                             </Link>
                         </Col>
                     </Row>

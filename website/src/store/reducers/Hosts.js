@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-    backend_url:"",
+    backend_url:"https://server-node-test-1.herokuapp.com/",
 
    
 

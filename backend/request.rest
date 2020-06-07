@@ -1,10 +1,7 @@
-GET http://localhost:3100/example
-Content-Type: application/json
+GET http://localhost:3100/config
 
-{
-    "name":"sd",
-    "password":"cravado"
-}
+
+
 ###
 
 
@@ -28,19 +25,18 @@ POST  http://localhost:3100/users
 Content-Type: application/json
 
 {
-    "name":"sd",
-    "password":"midcafhel",
-    "email":"df@gmail.com"
+    "name":"jjsd",
+    "password":"cavalghoPjkesado",
+    "email":"email@emfaikl.cum"
 }
 
 ###
-GET  http://localhost:3100/users
+POST   http://localhost:3100/userslogin
 Content-Type: application/json
 
-{
-    "name":"sd",
-    "password":"midcafhel",
-    "email":"df@gmail.com"
+{      
+    "password":"yuri20323",
+    "email":"email@email.com"
 }
 
 ###

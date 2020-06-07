@@ -18,7 +18,7 @@ import store  from '../../store/index';
 
 
 const Test_page = (props) => {
-    const store_data = useSelector(state => state.login)
+    const store_data = useSelector(state => state)
     const dispatch_func= useDispatch();
     //sec.encrypt()
     
@@ -41,8 +41,8 @@ const Test_page = (props) => {
         document.getElementById("text_input_test14").value = security.decrypt(text1,key1);
     }
     function teste1(){
-      let teste5 = store.getState()
-      console.log(teste5.login.name) 
+      
+      console.log(store_data) 
       
     }
     function teste2(){
@@ -57,24 +57,37 @@ const Test_page = (props) => {
     function teste3(){
 
   }
-  return (
-    <>
-    <Container fluid={true} className='class_test_page_container1'>
-        <Input type="text" id="text_input_test">
-        
-        </Input>
-        <Button onClick={()=>teste1()}>LISTA ESTADOS
+  if(store_data.auth.name == "adminErick"){
+    return (
+      <>
+      <Container fluid={true} className='class_test_page_container1'>
+          <Input type="text" id="text_input_test">
+          
+          </Input>
+          <Button onClick={()=>teste1()}>LISTA ESTADOS
+  
+          </Button>
+          <Button onClick={()=>teste2()}>pega o nome do input
+          </Button>
+  
+          
+          
+      </Container>
+  
+      </>
+    );
+  }else{
+      return(
+        <>
+          <Container fluid={true} className='class_test_page_container1'>
+              <h3>Usuario não  autorizado</h3>
 
-        </Button>
-        <Button onClick={()=>teste2()}>pega o nome do input
-        </Button>
+          </Container>
+        </>
+      
+      )
+    }
 
-        
-        
-    </Container>
-
-    </>
-  );
 }
 
 export default Test_page

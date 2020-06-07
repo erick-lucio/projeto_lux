@@ -4,31 +4,31 @@ const ChatController = require('./controllers/ChatController');
 const DefaultController = require('./controllers/DefaultController');
 const routes = express.Router();
 
-  //REALIZA CONFIGURAÇÃO/ INSERTS INICIAIS PADROES
-  routes.get('/config', function (req, res, next) {
-      //testa header
-      next();
-  },DefaultController.configDatabase);
-  //
-  //RETORNA TODOS OS USUARIOS
-  routes.get('/users', function (req, res, next) {
-      //testa header 
-
+function check_autentication(){  
+  if(true){
     next();
-  },UserController.returnUsers);//UserController.returnAllUsers);
-  //
-  //Adicionar Usuario
-  routes.post('/users', function (req, res, next) {
- //testa header
+  }else{
+    res.status(500).send("Error Autentication")
+  }
+}
+//REALIZA CONFIGURAÇÃO/ INSERTS INICIAIS PADROES
+routes.get('/config', function (req, res, next) {
+    //testa header
     next();
-  },UserController.createUser);
-//routes.get('/alluser', UserController.returnAllUsers);
-//routes.post('/cruser', UserController.createUser);
-//routes.get('/sruser/:valuePassword/:valueEmail', UserController.searchUser);
+},DefaultController.configDatabase);
+//
+//RETORNA um usuario
+routes.post('/userslogin', function (req, res, next) {
+    //testa header 
 
-//routes.get('/sr100chats', ChatController.searchLast100Messages);
-//routes.post('/inschat', ChatController.insertChatMessage);
-
+  next();
+},UserController.returnUsers);//UserController.returnAllUsers);
+//
+//Adicionar Usuario
+routes.post('/users', function (req, res, next) {
+//testa header
+  next();
+},UserController.createUser);
 
 
 module.exports = routes;
