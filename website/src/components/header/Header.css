@@ -89,6 +89,32 @@
     color: #ffffff;
     font-size: 1.28rem;
 }
+.class_header_menu_xs{
+    text-align: right;
+}
+.class_header_menu_xs_each_content{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.6rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.class_header_menu_xs a :hover{
+    color: #ffffff;
+    font-size: 1.65rem;
+}
+.class_header_menu_xs_each_content a :hover{
+    color: #ffffff;
+    font-size: 1.65rem;
+}
+.class_header_menu_xs_each_content :hover{
+    color: #ffffff;
+    font-size: 1.65rem;
+}
+.class_header_menu_xs_each_content :not( :hover ){
+    color: #ffffff;
+}
 @media (max-width: 576px) {  /*xs */
     .class_header_each_content{
         font-size: 0.5rem;

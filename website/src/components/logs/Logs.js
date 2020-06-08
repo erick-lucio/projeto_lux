@@ -3,8 +3,8 @@ import React,{useState} from 'react';
 import { render } from 'react-dom';
 import {Link,Redirect} from 'react-router-dom';
 import {Button, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import Checkbox_end from '../material_ui/CheckBox';
-import TextArea from '../material_ui/TextArea';
+import Checkbox_end from '../Material_ui/CheckBox';
+import TextArea from '../Material_ui/TextArea';
 import {useSelector,useDispatch}from 'react-redux'
 
 

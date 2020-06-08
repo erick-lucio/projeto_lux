@@ -30,18 +30,27 @@ export default function Header(){
         <>
             <Container fluid={true}>
                 <Row className="class_header_row">
-                    <Col sm="6" xs="6">
+                    <Col sm="2" xs="2">
                         <Link to="/" className="class_header_title_link">
                            <span>KonohaDev</span>
                             
                         </Link>
                     </Col>
-                    <Col sm="6" xs="6" className="class_header_menu" onClick={()=>open_sidebar()}>
+                    <Col sm="10" xs="10" className="class_header_menu_xs d-none d-md-block" >
+                        <Link to="/main" className="class_header_menu_xs_each_content">home</Link>
+                        <Link to="/login" className="class_header_menu_xs_each_content">login</Link>
+                        <Link to="/signin" className="class_header_menu_xs_each_content">signin</Link>
+                        <Link to="/pagina_teste" className="class_header_menu_xs_each_content">pagina teste</Link>
+                        <Link to="/logs" className="class_header_menu_xs_each_content">registros</Link>
+                      
+                    
+                    </Col>
+                    <Col sm="10" xs="10" className="class_header_menu d-md-none d-lg-none d-xl-none" onClick={()=>open_sidebar()}>
                         <span>☰ Menu</span>
                     
                     </Col>
                 </Row>
-                <Container className="class_header_sidebar" id="id_header_sidebar">
+                <Container className="class_header_sidebar d-sm-none d-md-none d-lg-none d-xl-none" id="id_header_sidebar">
                     <Row>                     
                         <Col sm="12" xs="12"
                           className="class_header_close_sidebar_button"
