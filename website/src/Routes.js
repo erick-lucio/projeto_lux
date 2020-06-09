@@ -32,7 +32,7 @@ export default function Routes(){
         
             <Header/>
             <Switch>
-                <Route exact path="/admi4n5n4" component={AdminPage}/> 
+                <Route exact path="/admin" component={AdminPage}/> 
                 <Route exact path="/pagina_teste" component={Test_page}/>  
                 <Route exact path="/main" component={MainPage}/>  
                 <Route exact path="/signin" component={SignIn}/>

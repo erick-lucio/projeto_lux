@@ -1,7 +1,13 @@
 /*Component imports */
-import React,{useState} from 'react';
-import { Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import {Link} from 'react-router-dom';
+import React,{useState,useEffect} from 'react';
+
+import { render } from 'react-dom';
+import {Link,Redirect} from 'react-router-dom';
+import {Button, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import Checkbox_end from '../material_ui/CheckBox';
+import TextArea from '../material_ui/TextArea';
+import {useSelector,useDispatch}from 'react-redux'
+
 
 /*css imports */
 import './Footer.css';
@@ -10,16 +16,34 @@ import './Footer.css';
 import Instagram from '../../imgs/Instagran_icon.png';
 
     export default function Footer() {
+      const dispatch_func = useDispatch();
+      const store_data = useSelector(state => state)
       document.title = 'Personal Website';
       const footer_emater = true;
-
+      function LogOFF(){
+        dispatch_func({
+            type:'LOGIN_',
+            logstate:"false"
+          })
+          
+          
+      }
       if(footer_emater){
           return (
             <>
               <Container className="class_footer_container" fluid={true}>
                   <Row>
-                    <Col sm="1"></Col>
-                    <Col sm="5" >
+                   
+                    {store_data.auth.logged === "true"?
+                    <Col sm="2" >
+                        <Button onClick={()=>LogOFF()}>LogOff</Button>
+                    </Col>:
+                    <Col sm="2">
+                        
+                    </Col>
+                    }
+                    
+                    <Col sm="4">
                         <h3 className="white_color">Sobre este Projeto</h3>
                         <p>Este website foi desenvolvido utilizando através da junção entre React Html Js e bootstrap.
                           Todos os componentes atuais estão sujeitos a mudanças tanto na parte de design ou funcionalidade,caso possua alguma dúvida ou sugestão entre em contato 

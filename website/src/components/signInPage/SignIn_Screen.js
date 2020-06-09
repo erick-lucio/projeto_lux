@@ -20,7 +20,8 @@ import urls from '../../index';
 
 
 /* */
-    export default function Signin() {        
+    export default function Signin() {     
+        const [re_render, setre_render] = useState(0);   
         const [sucessfull_signin,setsucessfull_signin]= useState();
         const store_data = useSelector(state => state)
         const dispatch_func = useDispatch();
@@ -39,7 +40,7 @@ import urls from '../../index';
             //setCookie('password', password_login, { path: '/' });
             //aplicar regex p gerenciamento das palavras inseridas
            
-            let url_ = store_data.hosts.state.backend_url+"users";
+            let url_ = store_data.hosts.backend_url+"users";
             //console.log(url_)
             if((name != "" && name != " " && name.length >=5 &&
                 email != "" && email != " " && email.length >=5 &&
@@ -85,8 +86,12 @@ import urls from '../../index';
 
        
         window.scrollTo({ top: 0});//vai pro inicio da page
+        useEffect(() => {
+            setre_render(!re_render);
+          }, [store_data.auth.logged]);
         return (
             <>
+                {store_data.auth.logged=="true"?<Redirect to="/main"/>:""}
                 {check_redirect()}
                 <Container className="class_signin_container" fluid={true}>
                     <Row className="class_signin_first_row">

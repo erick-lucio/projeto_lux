@@ -1,5 +1,6 @@
 /*Component imports */
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
+
 import { render } from 'react-dom';
 import {Link,Redirect} from 'react-router-dom';
 import {Button, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
@@ -22,7 +23,7 @@ import urls from '../../index';
 
 /* */
     export default function Login() {
-        
+        const [re_render, setre_render] = useState(0);
         const store_data = useSelector(state => state)
         //console.log(store_data)
         const dispatch_func= useDispatch();
@@ -41,7 +42,7 @@ import urls from '../../index';
             //setCookie('password', password_login, { path: '/' });
             //aplicar regex p gerenciamento das palavras inseridas
            
-            let url_ = store_data.hosts.state.backend_url+"userslogin";
+            let url_ = store_data.hosts.backend_url+"userslogin";
             //console.log(url_)
             if((email != "" && email != " " && email.length >=5 &&
             password != "" && password != " " && password.length >=5))
@@ -58,7 +59,7 @@ import urls from '../../index';
                            
                             dispatch_func({
                                 type:'LOGIN_',
-                                logged:"true" ,
+                                logstate:"true" ,
                                 key_auth:response.data[1].auth_id,
                                 name:response.data[0].name
                               })
@@ -83,17 +84,17 @@ import urls from '../../index';
                 
         };
 
-        function check_redirect(){
-            if(store_data.auth.key_auth != "none"){
-                return <Redirect to="/main"/>
-            }
-        }
+
         /* */
         //document.title = 'Personal Website';
         window.scrollTo({ top: 0});//vai pro inicio da page
+        useEffect(() => {
+            setre_render(!re_render);
+          }, [store_data.auth.logged]);
         return (
             <>  
-                {check_redirect()}
+                {store_data.auth.logged=="true"?<Redirect to="/main"/>:""}
+                
                 <Container className="class_login_container" fluid={true}>
                     <Row className="class_login_first_row">
                         <Col sm="12" className="class_login_img_col">

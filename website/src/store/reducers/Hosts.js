@@ -1,5 +1,5 @@
 const INITIAL_STATE_HOST = {
-    backend_url:'https://server-node-test-1.herokuapp.com/',
+    backend_url:'https://nodeserver12.herokuapp.com/',
     http:'false',
     https:'false'
 

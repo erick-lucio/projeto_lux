@@ -14,6 +14,7 @@ import axios from 'axios';
 import './AdminPanel.css';
 
 export default function Admin(){
+    
     const [render, setRender] = useState(0);
     const store_data = useSelector(state => state)    
     const dispatch_func= useDispatch();
@@ -24,8 +25,14 @@ export default function Admin(){
             type:'SET_URL_',
             url: document.getElementById("id_admin_page_texturl").value
           })
-   
-          setRender(!render)
+          document.getElementById("id_admin_page_texturl").value = "";
+          //setRender(!render)
+    }
+    function setAuth(){
+        dispatch_func({
+            type:'LOGIN_',
+            logstate:"true"
+          })
     }
     return(
         <>
@@ -39,6 +46,7 @@ export default function Admin(){
                 <TextArea  label={"Url do Backend, Url atual : "+store_data.hosts.backend_url} placeholder="Insira a url do servidor backend" className="class_adminpage_disabletexts" id="id_admin_page_texturl"></TextArea>                
                 <Button onClick={()=>setUrlBackend()}>Set</Button>
                 </Col>
+                <Button onClick={()=>setAuth()}>SetLooged</Button>
             </Row>
 
         </Container>

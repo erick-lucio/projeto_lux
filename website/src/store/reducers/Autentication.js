@@ -10,7 +10,7 @@ export default function loginReducer(state = INITIAL_STATE_AUTH,action = {}){
         case "LOGIN_":
         return {
             ...state,
-            logged:'true',
+            logged:action.logstate,
             key_auth:action.key_auth,
             name:action.name
         }

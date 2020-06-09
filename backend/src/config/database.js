@@ -1,9 +1,9 @@
 module.exports  = ({
   dialect: 'mysql',
   host: 'sq65ur5a5bj7flas.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-  username: 'r4mpxdpyrlug6kef',
-  password: 'gfegdu6s8x93n5jp',
-  database: 'svp606sou0thkq5j',
+  username: 'qq68dzwb5hu9mnjl',
+  password: 'fsyqvgy3spes80o4',
+  database: 'dg5mkzw61u9gjlkz',
   define:{
       timestamp:true,
       undescored:true,      

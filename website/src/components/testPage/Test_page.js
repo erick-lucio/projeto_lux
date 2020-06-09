@@ -61,7 +61,7 @@ const Test_page = (props) => {
     function teste3(){
 
   }
-  if (store_data.auth.name != "adminErick"){
+  if (store_data.auth.name == "adminErick"){
     return (
       <>
       <Container fluid={true} className='class_test_page_container1'>

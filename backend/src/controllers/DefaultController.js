@@ -22,7 +22,7 @@ module.exports ={
         const verify_super_admin = await Usuarios.findAll({
             atributes:['email'],
             where:{
-                email:"email@email.co"
+                email:"email@email.com"
             }
         })
         if(verify_super_admin.length == 0){

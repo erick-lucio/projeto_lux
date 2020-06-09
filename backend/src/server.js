@@ -12,8 +12,12 @@ app.use(cors());
 app.use(helmet())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
-app.use(routes);
 
+try {
+    app.use(routes);
+} catch (error) {
+    console.log(error)
+}
 
 app.listen(3100);
 
