@@ -7,13 +7,12 @@ import {useSelector,useDispatch}from 'react-redux'
 
 /*functions import */
 import axios from 'axios';
-import { useCookies } from 'react-cookie';
+
 
 /*css imports */
 import './Header.css';
 
-/* import urls*/
-import urls from '../../index';
+
 
 export default function Header(){
     const store_data = useSelector(state => state)
@@ -89,12 +88,14 @@ export default function Header(){
                         </Col>
                     </Row>
                     <Row>
-                        <Col className="class_header_each_content">
-                            <Link to="/pagina_teste"
-                                onClick={()=>close_sidebar()}> 
-                                Test page
-                            </Link>
-                        </Col>
+                    {store_data.auth.logged === "true"?
+                    <Col className="class_header_each_content">
+                        <Link to="/pagina_teste"
+                            onClick={()=>close_sidebar()}> 
+                            Test page
+                        </Link>
+                    </Col> :""}
+
                     </Row>
                     <Row>
                         <Col className="class_header_each_content">
