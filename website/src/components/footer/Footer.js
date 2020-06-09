@@ -31,7 +31,7 @@ import Instagram from '../../imgs/Instagran_icon.png';
                             <ul>
                               <li className="class_footer_lists_elements"><Link to="/about">Sobre.</Link></li>
                               <li className="class_footer_lists_elements"><a href="#">Contato.</a></li>
-                              <li className="class_footer_lists_elements"><a href="#">Felis enim feugiat viverra.</a></li>
+                              <li className="class_footer_lists_elements"><a href="#">Clientes.</a></li>
                               <li className="class_footer_lists_elements_no_border"><a href="#">Dolor pulvinar magna etiam.</a></li>
                             </ul>
                     </Col>

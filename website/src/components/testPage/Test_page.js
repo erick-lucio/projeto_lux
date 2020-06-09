@@ -4,7 +4,7 @@ import { Button,Container, Row, Col, Form, FormGroup, Label, Input, FormText } f
 import {useSelector,useDispatch}from 'react-redux'
 /*import css */
 import './Test_page.css';
-import * as security from '../../Security';
+import saveLocal from '../../LocalStorage';
 
 
 /*import de imagens */
@@ -20,9 +20,9 @@ import store  from '../../store/index';
 const Test_page = (props) => {
     const store_data = useSelector(state => state)
     const dispatch_func= useDispatch();
-    //sec.encrypt()
+    /*teste var */var car = [{key:"name", value:"micael"},{key:"id", value:"asds"},{key:"acc", value:"hjh545"}];
     
-    //sec.decrypt()
+    saveLocal.getLocally("name")
     function criptografa(){
         let text = document.getElementById("text_input_test").value;
         let key = document.getElementById("text_input_test1").value
@@ -31,33 +31,37 @@ const Test_page = (props) => {
         
        
      
-        document.getElementById("text_input_test2").value = security.encrypt(text,key);
+     
        
     }
-    function descriptografa(){
-        let text1 = document.getElementById("text_input_test2").value
-        let key1 = document.getElementById("text_input_test1").value;// document.getElementById("text_input_test13").value
-        
-        document.getElementById("text_input_test14").value = security.decrypt(text1,key1);
-    }
+
     function teste1(){
       
       console.log(store_data) 
       
     }
     function teste2(){
-      dispatch_func({
-        type:'LOGIN_',
-        logged:"true" ,
-        key_auth:"marcarath d_ f'",
-        name:document.getElementById("text_input_test").value
-      })
-    
+      
+  
+      
+    let object = [{key:"name",value:document.getElementById("text_input_test").value
+    },{key:"id",value:"fdf44"},{key:"auth",value:"44g554g554g55"},]
+      saveLocal.saveLocally(object)
+      //console.log(Promise.resolve((saveLocal.getLocally("name"))))
+      //console.log(saveLocal.getLocally("auth"))
+      //console.log(saveLocal.getLocally("id"))
+      var promise = Promise.resolve(saveLocal.getLocally("name")); 
+      var promise = Promise.resolve(saveLocal.getLocally("id")); 
+      var promise = Promise.resolve(saveLocal.getLocally("auth")); 
+     
+      promise.then(function(val) { 
+        console.log(val); 
+    }); 
     }
     function teste3(){
 
   }
-  if(store_data.auth.name == "adminErick"){
+  if (store_data.auth.name != "adminErick"){
     return (
       <>
       <Container fluid={true} className='class_test_page_container1'>

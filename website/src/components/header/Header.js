@@ -1,7 +1,8 @@
 /*Component imports */
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Button,Collapse, Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {useSelector,useDispatch}from 'react-redux'
 
 
 /*functions import */
@@ -15,6 +16,8 @@ import './Header.css';
 import urls from '../../index';
 
 export default function Header(){
+    const store_data = useSelector(state => state)
+    const [re_render, setre_render] = useState(false);
     function open_sidebar() {
         document.getElementById("id_header_sidebar").style.width = "auto";
         //setProperty('--width-sidebar', "25%");
@@ -26,6 +29,7 @@ export default function Header(){
         //setProperty('--width-sidebar', "0%");
         //document.getElementById("main").style.marginLeft= "0";
       }
+
     return(
         <>
             <Container fluid={true}>
@@ -37,11 +41,12 @@ export default function Header(){
                         </Link>
                     </Col>
                     <Col sm="10" xs="10" className="class_header_menu_xs d-none d-md-block" >
-                        <Link to="/main" className="class_header_menu_xs_each_content">home</Link>
-                        <Link to="/login" className="class_header_menu_xs_each_content">login</Link>
-                        <Link to="/signin" className="class_header_menu_xs_each_content">signin</Link>
-                        <Link to="/pagina_teste" className="class_header_menu_xs_each_content">pagina teste</Link>
-                        <Link to="/logs" className="class_header_menu_xs_each_content">registros</Link>
+                        <Link to="/main" className="class_header_menu_xs_each_content">Home</Link>
+                        <Link to="/login" className="class_header_menu_xs_each_content">Login</Link>
+                        <Link to="/signin" className="class_header_menu_xs_each_content">SignIn</Link>
+                        {store_data.auth.logged === "true"? <Link to="/pagina_teste" className="class_header_menu_xs_each_content">Testes</Link> :""}
+                        
+                        <Link to="/logs" className="class_header_menu_xs_each_content">Registros</Link>
                       
                     
                     </Col>
@@ -50,7 +55,7 @@ export default function Header(){
                     
                     </Col>
                 </Row>
-                <Container className="class_header_sidebar d-sm-none d-md-none d-lg-none d-xl-none" id="id_header_sidebar">
+                <Container className="class_header_sidebar d-md-none d-lg-none d-xl-none" id="id_header_sidebar">
                     <Row>                     
                         <Col sm="12" xs="12"
                           className="class_header_close_sidebar_button"

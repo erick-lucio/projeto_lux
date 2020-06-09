@@ -35,7 +35,7 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(3, 14, 26);
-    
+    padding-bottom: 5px;
 }
 /*sidebar header */
 
@@ -89,9 +89,7 @@
     color: #ffffff;
     font-size: 1.28rem;
 }
-.class_header_menu_xs{
-    text-align: right;
-}
+
 .class_header_menu_xs_each_content{
     text-decoration: none;
     color: #ffffff;
@@ -99,18 +97,27 @@
     margin-left: 10px;
     margin-right: 10px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 100%;
+    display: inline-block;
 }
-.class_header_menu_xs a :hover{
+a .class_header_menu_xs_each_content:hover{
+    color: #ffffff;
+}
+.class_header_menu_xs{
+    text-align: right;
+    height: 100%;
+}
+.class_header_menu_xs :hover{
     color: #ffffff;
     font-size: 1.65rem;
+    background-color: rgb(21, 40, 59);
+    
+    
 }
-.class_header_menu_xs_each_content a :hover{
-    color: #ffffff;
-    font-size: 1.65rem;
-}
+
 .class_header_menu_xs_each_content :hover{
     color: #ffffff;
-    font-size: 1.65rem;
+    
 }
 .class_header_menu_xs_each_content :not( :hover ){
     color: #ffffff;
