@@ -29,6 +29,10 @@ routes.post('/users', function (req, res, next) {
 //testa header
   next();
 },UserController.createUser);
-
+//testes
+routes.get('/teste', function (req, res, next) {
+  //testa header
+  next();
+},DefaultController.testeFunction);
 
 module.exports = routes;

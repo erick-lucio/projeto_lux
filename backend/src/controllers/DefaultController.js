@@ -2,6 +2,7 @@ const Usuarios = require('../models/Usuarios.js');
 const Cidade = require('../models/Cidade.js');
 const Estado = require('../models/Estado.js');
 const Chat = require('../models/Chat.js');
+const root_path = require('../../env')
 const bcrypt = require("bcrypt")
 const estados = [
   {name:"AC"},{name:"AL"},{name:"AP"},{name:"AM"},{name:"BA"},{name:"CE"},{name:"DF"},{name:"ES"},{name:"GO"},{name:"MA"},{name:"MT"},
@@ -35,6 +36,13 @@ module.exports ={
         }
 
         res.status(200).send("Sucess") ;
+      },
+      async testeFunction(req, res) {    
+
+    
+
+        console.log(root_path)
+        res.status(200).sendFile('/src/imgRepository/Instagran_icon.png', { root:root_path }) ;
       },
 }
 /*

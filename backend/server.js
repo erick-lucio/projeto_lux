@@ -24,6 +24,21 @@ app.listen(PORT, () => {
 /*
 
 
+app.use(bodyParser.json());
+app.use(cors());
+app.use(helmet())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
+
+try {
+    app.use(routes);
+} catch (error) {
+    console.log(error)
+}
+
+app.listen(3100);
+
+
 
 
 s
