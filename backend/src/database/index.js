@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const dbConfig = require('../config/database');
 
-const Usuarios = require('../models/Usuarios');
+const Usuarios = require('../models/Users');
 const Chat = require('../models/Chat');
 const Estado = require('../models/Estado');
 const Cidade = require('../models/Cidade');

@@ -1,7 +1,7 @@
 
 const { Op } = require("sequelize");
 const bcrypt = require("bcrypt")
-const Usuarios = require('../models/Usuarios.js');
+const Usuarios = require('../models/Users.js');
 const temp_security_key = "ajk85HJH48HJFJHJjht4uhj98uf9898H8YH876876yh876";
 module.exports = {
   

@@ -60,7 +60,7 @@ const Test_page = (props) => {
     }
     function teste3(){
 
-  }
+    }
   if (store_data.auth.name == "adminErick"){
     return (
       <>
