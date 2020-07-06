@@ -4,7 +4,9 @@ class Cidade extends Model {
   static init(sequelize) {
     super.init({
       name:DataTypes.STRING,
-      estado_id:DataTypes.STRING
+      sigla:DataTypes.STRING,
+      estado_id:DataTypes.STRING,
+      pais_id:DataTypes.STRING,
     }, {
       sequelize,
       modelName: 'cidade',

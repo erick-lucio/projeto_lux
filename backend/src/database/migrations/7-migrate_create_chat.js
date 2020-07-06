@@ -15,7 +15,8 @@ module.exports = {
      },
     hidden:{
       type:Sequelize.BOOLEAN,
-      allowNull:false
+      allowNull:false,
+      defaultValue:false
      },
     destinatario_user_id:{
       type:Sequelize.INTEGER,

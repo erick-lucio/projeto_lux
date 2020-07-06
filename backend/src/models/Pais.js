@@ -3,10 +3,8 @@ const { Model, DataTypes } = require('sequelize');
 class Pais extends Model {
   static init(sequelize) {
     super.init({
-      message_content:DataTypes.STRING,
-      user_id:DataTypes.INTEGER,
-      from_user:DataTypes.STRING,
-      to_user:DataTypes.STRING,
+      name:DataTypes.STRING,
+      sigla:DataTypes.STRING,
       }, {
       sequelize,
       modelName: 'pais',

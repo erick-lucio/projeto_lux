@@ -15,11 +15,13 @@ module.exports = {
      },
     description:{
       type:Sequelize.STRING,
-      allowNull:false
+      allowNull:false,
+      defaultValue:""
      },
     hidden:{
       type:Sequelize.BOOLEAN,
-      allowNull:false
+      allowNull:false,
+      defaultValue:false
      },
     path:{
       type:Sequelize.STRING,

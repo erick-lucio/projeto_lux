@@ -2,11 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 class Img_main extends Model {
   static init(sequelize) {
-    super.init({
-      message_content:DataTypes.STRING,
-      user_id:DataTypes.INTEGER,
-      from_user:DataTypes.STRING,
-      to_user:DataTypes.STRING,
+    super.init({ 
+      user_id:DataTypes.STRING,
+      img_id:DataTypes.STRING,
       }, {
       sequelize,
       modelName: 'img_main',

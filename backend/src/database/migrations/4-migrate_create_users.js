@@ -13,17 +13,32 @@ module.exports = {
       type:Sequelize.STRING,
       allowNull:false
     },
-    rua:{
+    password:{
       type:Sequelize.STRING,
       allowNull:false
+    },
+    email:{
+      type:Sequelize.STRING,
+      allowNull:false
+    },
+    logged:{
+      type:Sequelize.BOOLEAN,
+      allowNull:false
+    },
+    rua:{
+      type:Sequelize.STRING,
+      allowNull:false,
+      defaultValue:""
     },
     sobre:{
       type:Sequelize.STRING,
-      allowNull:false
+      allowNull:false,
+      defaultValue:""
     },
     permissao:{
       type:Sequelize.INTEGER,
-      allowNull:false
+      allowNull:false,
+      defaultValue:0
     },
     idade:{
       type:Sequelize.INTEGER,

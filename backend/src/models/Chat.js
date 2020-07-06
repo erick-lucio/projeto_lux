@@ -3,10 +3,10 @@ const { Model, DataTypes } = require('sequelize');
 class Chat extends Model {
   static init(sequelize) {
     super.init({
-      message_content:DataTypes.STRING,
-      user_id:DataTypes.INTEGER,
-      from_user:DataTypes.STRING,
-      to_user:DataTypes.STRING,
+      message:DataTypes.STRING,
+      hidden:DataTypes.BOOLEAN,
+      destinatario_user_id:DataTypes.INTEGER,
+      remetente_user_id:DataTypes.INTEGER,
       }, {
       sequelize,
       modelName: 'chat',
