@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 
-class Chat extends Model {
+class Img_main extends Model {
   static init(sequelize) {
     super.init({
       message_content:DataTypes.STRING,
@@ -9,7 +9,7 @@ class Chat extends Model {
       to_user:DataTypes.STRING,
       }, {
       sequelize,
-      modelName: 'chat',
+      modelName: 'img_main',
       freezeTableName: true,
     })
     
@@ -18,4 +18,4 @@ class Chat extends Model {
 
 }
 
-module.exports =  Chat;
+module.exports =  Img_main;

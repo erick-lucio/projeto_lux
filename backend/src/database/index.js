@@ -1,38 +1,91 @@
 const Sequelize = require('sequelize');
 const dbConfig = require('../config/database');
 
-const Usuarios = require('../models/Users');
+const Users = require('../models/Users');
 const Chat = require('../models/Chat');
 const Estado = require('../models/Estado');
 const Cidade = require('../models/Cidade');
-
+const Imgs = require('../models/Chat');
+const Img_main = require('../models/Estado');
+const Pais = require('../models/Cidade');
 
 const connection = new Sequelize(dbConfig);
 
-Usuarios.init(connection);
+Users.init(connection);
 Chat.init(connection);
 Estado.init(connection);
 Cidade.init(connection);
+Imgs.init(connection);
+Img_main.init(connection);
+Pais.init(connection);
 
-
-Usuarios.belongsTo(Estado,{
+/*
+#########################################################
+Users relations
+#########################################################
+*/
+Users.belongsTo(Estado,{
     foreignKey:'estado_id'
 });
-Usuarios.belongsTo(Cidade,{
+Users.belongsTo(Cidade,{
     foreignKey:'cidade_id'
 });
-//
+Users.belongsTo(Pais,{
+    foreignKey:'pais_id'
+});
+//////////////////////////////////////////
+/*
+#########################################################
+Cidade relations
+#########################################################
+*/
 Cidade.belongsTo(Estado,{
     foreignKey:'estado_id'
 });
-//
-Chat.belongsTo(Usuarios,{
-    foreignKey:'to_user'
+Cidade.belongsTo(Pais,{
+    foreignKey:'pais_id'
 });
-Chat.belongsTo(Usuarios,{
-    foreignKey:'from_user'
+/*
+#########################################################
+Estado relations
+#########################################################
+*/
+Estado.belongsTo(Pais,{
+    foreignKey:'pais_id'
 });
-
-
+///////////////////////////////
+/*
+#########################################################
+Chat relations
+#########################################################
+*/
+Chat.belongsTo(Users,{
+    foreignKey:'destinatario_user_id'
+});
+Chat.belongsTo(Users,{
+    foreignKey:'remetente_user_id'
+});
+////////////////////////////
+/*
+#########################################################
+ImgProfile relations
+#########################################################
+*/
+Img_main.belongsTo(Imgs,{
+    foreignKey:'img_id'
+});
+Img_main.belongsTo(Users,{
+    foreignKey:'user_id'
+});
+////////////////////////////////
+/*
+#########################################################
+Imgs relations
+#########################################################
+*/
+Imgs.belongsTo(Users,{
+    foreignKey:'user_id'
+});
+///////////////////////////////
 
 module.exports = connection;
