@@ -1,13 +1,13 @@
-const Sequelize = require('sequelize');
-const dbConfig = require('../config/database');
+const Sequelize = require("sequelize");
+const dbConfig = require("../config/database");
 
-const Users = require('../models/Users');
-const Chat = require('../models/Chat');
-const Estado = require('../models/Estado');
-const Cidade = require('../models/Cidade');
-const Imgs = require('../models/Chat');
-const Img_main = require('../models/Estado');
-const Pais = require('../models/Cidade');
+const Users = require("../models/Users");
+const Chat = require("../models/Chat");
+const Estado = require("../models/Estado");
+const Cidade = require("../models/Cidade");
+const Imgs = require("../models/Chat");
+const Img_main = require("../models/Estado");
+const Pais = require("../models/Cidade");
 
 const connection = new Sequelize(dbConfig);
 
@@ -24,14 +24,14 @@ Pais.init(connection);
 Users relations
 #########################################################
 */
-Users.belongsTo(Estado,{
-    foreignKey:'estado_id'
+Users.belongsTo(Estado, {
+  foreignKey: "estado_id",
 });
-Users.belongsTo(Cidade,{
-    foreignKey:'cidade_id'
+Users.belongsTo(Cidade, {
+  foreignKey: "cidade_id",
 });
-Users.belongsTo(Pais,{
-    foreignKey:'pais_id'
+Users.belongsTo(Pais, {
+  foreignKey: "pais_id",
 });
 //////////////////////////////////////////
 /*
@@ -39,19 +39,19 @@ Users.belongsTo(Pais,{
 Cidade relations
 #########################################################
 */
-Cidade.belongsTo(Estado,{
-    foreignKey:'estado_id'
+Cidade.belongsTo(Estado, {
+  foreignKey: "estado_id",
 });
-Cidade.belongsTo(Pais,{
-    foreignKey:'pais_id'
+Cidade.belongsTo(Pais, {
+  foreignKey: "pais_id",
 });
 /*
 #########################################################
 Estado relations
 #########################################################
 */
-Estado.belongsTo(Pais,{
-    foreignKey:'pais_id'
+Estado.belongsTo(Pais, {
+  foreignKey: "pais_id",
 });
 ///////////////////////////////
 /*
@@ -59,11 +59,11 @@ Estado.belongsTo(Pais,{
 Chat relations
 #########################################################
 */
-Chat.belongsTo(Users,{
-    foreignKey:'destinatario_user_id'
+Chat.belongsTo(Users, {
+  foreignKey: "destinatario_user_id",
 });
-Chat.belongsTo(Users,{
-    foreignKey:'remetente_user_id'
+Chat.belongsTo(Users, {
+  foreignKey: "remetente_user_id",
 });
 ////////////////////////////
 /*
@@ -71,11 +71,11 @@ Chat.belongsTo(Users,{
 ImgProfile relations
 #########################################################
 */
-Img_main.belongsTo(Imgs,{
-    foreignKey:'img_id'
+Img_main.belongsTo(Imgs, {
+  foreignKey: "img_id",
 });
-Img_main.belongsTo(Users,{
-    foreignKey:'user_id'
+Img_main.belongsTo(Users, {
+  foreignKey: "user_id",
 });
 ////////////////////////////////
 /*
@@ -83,8 +83,8 @@ Img_main.belongsTo(Users,{
 Imgs relations
 #########################################################
 */
-Imgs.belongsTo(Users,{
-    foreignKey:'user_id'
+Imgs.belongsTo(Users, {
+  foreignKey: "user_id",
 });
 ///////////////////////////////
 
