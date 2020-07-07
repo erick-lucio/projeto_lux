@@ -1,24 +1,19 @@
-const { Op } = require("sequelize");
+const { Op, json } = require("sequelize");
 const bcrypt = require("bcrypt");
-const Usuarios = require("../models/Users.js");
+
+const Users = require("../models/Users");
+const Images = require("../models/imgs");
+const Img_Main = require("../models/Img_main");
+
 const temp_security_key = "ajk85HJH48HJFJHJjht4uhj98uf9898H8YH876876yh876";
 module.exports = {
-  async returnUsers(req, res) {
-    const user = await Usuarios.findAll({
+  async getUser(req, res) {
+    const { email, password } = req.body;
+    const user = await Users.findAll({
       attributes: ["name", "password"],
       where: {
-        email: req.body.email,
+        email: email,
       },
-      //  include: [{
-      //       model: hp_state,
-      //       attributes: ['state_id', 'state_name'],
-      //      where: {
-      //          state_status: 1,
-      //           state_name: {
-      //              $like: '%ta%'
-      //          }
-      //     }
-      //}]
     });
 
     if (user.length == 0) {
@@ -26,7 +21,7 @@ module.exports = {
     }
 
     try {
-      if (await bcrypt.compare(req.body.password, user[0].password)) {
+      if (await bcrypt.compare(password, user[0].password)) {
         //res.setHeader('Content-Type', 'application/json');
         res.send([
           { name: user[0].name },
@@ -39,6 +34,13 @@ module.exports = {
     } catch {
       res.status(500).send([{ succes: false }]);
     }
+  },
+  async getUsersByQueryId(req, res) {
+    const id = req.params.id;
+    const user_data = await User.findAll({
+      where: { id: id },
+    });
+    res.status(200).send(json(user_data));
   },
   async createUser(req, res) {
     let { name, password, email } = req.body;

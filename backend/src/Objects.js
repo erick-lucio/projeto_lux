@@ -5601,4 +5601,4 @@ var cidades = [
   { sigla: "GO", name: "Vila Propício" },
   { sigla: "DF", name: "Brasília" },
 ];
-module.exports = { estados, cidades };
+module.exports = { estados, cidades, paises };

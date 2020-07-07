@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "start1": "nodemon server.js"
+    "start1": "nodemon server.js",
+    "cleancode": "npx prettier --write ."
   },
   "dependencies": {
     "bcrypt": "^4.0.1",

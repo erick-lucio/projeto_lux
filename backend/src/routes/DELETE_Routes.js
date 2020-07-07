@@ -15,5 +15,28 @@ function check_autentication() {
     res.status(500).send("Error Autentication");
   }
 }
-
+postRoutes.delete(
+  "/images",
+  function (req, res, next) {
+    //testa header
+    next();
+  },
+  UserController.returnUsers
+);
+postRoutes.delete(
+  "/users",
+  function (req, res, next) {
+    //testa header
+    next();
+  },
+  UserController.returnUsers
+);
+postRoutes.delete(
+  "/messages",
+  function (req, res, next) {
+    //testa header
+    next();
+  },
+  UserController.returnUsers
+);
 module.exports = deleteRoutes;

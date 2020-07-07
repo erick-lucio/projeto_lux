@@ -1,8 +1,37 @@
 const Usuarios = "../models/Usuarios.js";
 const Chat = require("../models/Chat");
+const Users = require("../models/Users");
+const Images = require("../models/imgs");
+const Img_Main = require("../models/Img_main");
+
 const { Op } = require("sequelize");
 
 module.exports = {
+  async getMessage(req, res) {
+    const { destinatario, remetente } = req.body;
+    const users_data = await Users.findAll({
+      attributes: ["id"],
+      where: {
+        [Op.or]: [{ name: destinatario }, { name: remetente }],
+      },
+    });
+
+    const messages_data = await Chat.findAll({
+      attributes: ["destinatario_user_id", "remetente_user_id", "message"],
+      where: {
+        id: id,
+      },
+    });
+  },
+  async getMessageById(req, res) {
+    const { id } = req.body;
+    const messages_data = await Chat.findAll({
+      attributes: ["destinatario_user_id", "remetente_user_id", "message"],
+      where: {
+        id: id,
+      },
+    });
+  },
   async searchLast100Messages(req, res) {
     let chat_messages = await Chat.findAll({
       attributes: ["messages", "time_msg"],

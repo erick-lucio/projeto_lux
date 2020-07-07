@@ -17,7 +17,7 @@ function check_autentication() {
 }
 
 postRoutes.post(
-  "/userslogin",
+  "/images",
   function (req, res, next) {
     //testa header
 
@@ -43,7 +43,7 @@ postRoutes.post(
   UserController.returnUsers
 );
 postRoutes.post(
-  "/product",
+  "/messages",
   function (req, res, next) {
     //testa header
     next();

@@ -2,6 +2,7 @@ const express = require("express");
 const UserController = require("../controllers/UserController");
 const ChatController = require("../controllers/ChatController");
 const DefaultController = require("../controllers/DefaultController");
+const ImageController = require("../controllers/ImageController");
 
 const getRoutes = express.Router();
 const multer = require("multer");
@@ -12,7 +13,7 @@ function check_autentication() {
   if (true) {
     next();
   } else {
-    res.status(500).send("Error Autentication");
+    res.status(401).send("Error Autentication");
   }
 }
 getRoutes.get(
@@ -37,32 +38,47 @@ getRoutes.get(
     //testa header
     next();
   },
-  DefaultController.configDatabase
+  ImageController.getImgById
 );
 getRoutes.get(
-  "/product",
+  "/userimgs",
   function (req, res, next) {
     //testa header
     next();
   },
-  DefaultController.configDatabase
+  ImageController.getUserImgs
 );
 getRoutes.get(
-  "/productimg",
+  "/users",
   function (req, res, next) {
     //testa header
     next();
   },
-  DefaultController.configDatabase
+  UserController.getUser
+);
+getRoutes.get(
+  "/profile/:id",
+  function (req, res, next) {
+    //testa header
+    next();
+  },
+  UserController.getUsersByQueryId
 );
 
 getRoutes.get(
-  "/productimgall",
+  "/messages",
   function (req, res, next) {
     //testa header
     next();
   },
-  DefaultController.configDatabase
+  ChatController.getMessageById
 );
-
+getRoutes.get(
+  "/chat",
+  function (req, res, next) {
+    //testa header
+    next();
+  },
+  ChatController.configDatabase
+);
 module.exports = getRoutes;
