@@ -79,6 +79,6 @@ getRoutes.get(
     //testa header
     next();
   },
-  ChatController.configDatabase
+  ChatController.getMessage
 );
 module.exports = getRoutes;

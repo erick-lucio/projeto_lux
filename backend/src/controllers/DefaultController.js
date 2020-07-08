@@ -1,50 +1,79 @@
-const Usuarios = require("../models/Users.js");
-const Cidade = require("../models/Cidade.js");
-const Estado = require("../models/Estado.js");
-const Chat = require("../models/Chat.js");
-const Pais = require("../models/Pais.js");
+const Users = require("../models/Users");
+const Cidade = require("../models/Cidade");
+const Estado = require("../models/Estado");
+const Chat = require("../models/Chat");
+const Pais = require("../models/Pais");
 
 const bcrypt = require("bcrypt");
 const Objects = require("../Objects.js");
 
 module.exports = {
   async configDatabase(req, res) {
-    const verify_country = await Pais.findAll({
+    let verify_country = await Pais.findAll({
       atributes: ["name"],
       where: {
         sigla: "BR",
       },
     });
     if (verify_country.length == 0) {
-      const insert_country = await Pais.bulkCreate(Objects.paises);
+      let insert_country = await Pais.create({
+        name: Objects.paises[0].name,
+        sigla: Objects.paises[0].sigla,
+      });
     }
-    const verify_state = await Estado.findAll({
+    let verify_state = await Estado.findAll({
       atributes: ["name"],
       where: {
         sigla: "AC",
       },
     });
     if (verify_state.length == 0) {
-      const insert_states = await Estado.create({});
+      Objects.estados.forEach((element) => {
+        let verify_country = Pais.findAll({
+          atributes: ["id"],
+          where: {
+            sigla: "BR",
+          },
+        });
+        console.log(verify_country);
+        let insert_states = Estado.create({
+          name: element.name,
+          sigla: element.sigla,
+          pais_id: verify_country[0].id,
+        });
+      });
     }
-    const verify_city = await Cidade.findAll({
+    //
+    let verify_city = await Cidade.findAll({
       atributes: ["name"],
       where: {
         name: "Acre",
       },
     });
     if (verify_city.length == 0) {
-      const insert_city = await Cidade.bulkCreate(Objects.cidades);
+      Objects.cidade.forEach((element) => {
+        let verify_state = Estado.findAll({
+          atributes: ["id", "pais_id"],
+          where: {
+            sigla: element.sigla,
+          },
+        });
+        let insert_city = Cidade.create({
+          name: element.name,
+          estado_id: verify_state[0].id,
+          pais_id: verify_state[0].pais_id,
+        });
+      });
     }
 
-    const verify_super_admin = await Usuarios.findAll({
+    let verify_super_admin = await Usuarios.findAll({
       atributes: ["email"],
       where: {
         email: "email@email.com",
       },
     });
     if (verify_super_admin.length == 0) {
-      const insert_users = await Usuarios.create({
+      let insert_users = await Usuarios.create({
         name: "adminErick",
         password: await bcrypt.hash("yuri20323", 10),
         email: "email@email.com",

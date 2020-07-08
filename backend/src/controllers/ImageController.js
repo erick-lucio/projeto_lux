@@ -2,7 +2,7 @@ const multer = require("multer");
 const path = require("path");
 const multerconfig = require("../config/multer");
 const Users = require("../models/Users");
-const Images = require("../models/imgs");
+const Images = require("../models/Imgs");
 const Img_Main = require("../models/Img_main");
 
 const { Op } = require("sequelize");

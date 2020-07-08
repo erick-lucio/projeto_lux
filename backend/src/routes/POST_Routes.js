@@ -23,7 +23,7 @@ postRoutes.post(
 
     next();
   },
-  UserController.returnUsers
+  UserController.createUser
 ); //UserController.returnAllUsers);
 postRoutes.post(
   "/users",
@@ -40,7 +40,7 @@ postRoutes.post(
     //testa header
     next();
   },
-  UserController.returnUsers
+  UserController.createUser
 );
 postRoutes.post(
   "/messages",
@@ -48,7 +48,7 @@ postRoutes.post(
     //testa header
     next();
   },
-  UserController.returnUsers
+  UserController.createUser
 );
 
 module.exports = postRoutes;

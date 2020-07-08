@@ -14,7 +14,7 @@ class Users extends Model {
         logged: DataTypes.BOOLEAN,
         cidade_id: DataTypes.INTEGER,
         estado_id: DataTypes.INTEGER,
-        paid_id: DataTypes.INTEGER,
+        pais_id: DataTypes.INTEGER,
       },
       {
         sequelize,

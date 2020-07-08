@@ -15,28 +15,28 @@ function check_autentication() {
     res.status(500).send("Error Autentication");
   }
 }
-postRoutes.update(
+updateRoutes.put(
   "/images",
   function (req, res, next) {
     //testa header
     next();
   },
-  UserController.returnUsers
+  UserController.getUser
 );
-postRoutes.update(
+updateRoutes.put(
   "/users",
   function (req, res, next) {
     //testa header
     next();
   },
-  UserController.returnUsers
+  UserController.getUser
 );
-postRoutes.update(
+updateRoutes.put(
   "/messages",
   function (req, res, next) {
     //testa header
     next();
   },
-  UserController.returnUsers
+  UserController.getUser
 );
 module.exports = updateRoutes;

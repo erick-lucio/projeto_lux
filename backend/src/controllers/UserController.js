@@ -2,7 +2,7 @@ const { Op, json } = require("sequelize");
 const bcrypt = require("bcrypt");
 
 const Users = require("../models/Users");
-const Images = require("../models/imgs");
+const Images = require("../models/Imgs");
 const Img_Main = require("../models/Img_main");
 
 const temp_security_key = "ajk85HJH48HJFJHJjht4uhj98uf9898H8YH876876yh876";
@@ -37,7 +37,7 @@ module.exports = {
   },
   async getUsersByQueryId(req, res) {
     const id = req.params.id;
-    const user_data = await User.findAll({
+    const user_data = await Users.findAll({
       where: { id: id },
     });
     res.status(200).send(json(user_data));

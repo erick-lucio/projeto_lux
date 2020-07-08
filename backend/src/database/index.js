@@ -5,9 +5,9 @@ const Users = require("../models/Users");
 const Chat = require("../models/Chat");
 const Estado = require("../models/Estado");
 const Cidade = require("../models/Cidade");
-const Imgs = require("../models/Chat");
-const Img_main = require("../models/Estado");
-const Pais = require("../models/Cidade");
+const Imgs = require("../models/Imgs");
+const Img_main = require("../models/Img_main");
+const Pais = require("../models/Pais");
 
 const connection = new Sequelize(dbConfig);
 
