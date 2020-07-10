@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 3100;
 app.listen(PORT, () => {
   console.log(`Our app is running on port ${PORT}`);
 });
-
+//VER PQ SO ESTA ADICIONANDO 800 CIDADE E ARRUMA A INSERÇÃO DE USUARIO NO CONTROLLER DEFAULT
 /*
 
 

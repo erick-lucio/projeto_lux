@@ -17,13 +17,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      pais_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: "pais", key: "id" },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
-      },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,

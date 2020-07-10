@@ -6,7 +6,6 @@ class Estado extends Model {
       {
         name: DataTypes.STRING,
         sigla: DataTypes.STRING,
-        pais_id: DataTypes.INTEGER,
       },
       {
         sequelize,

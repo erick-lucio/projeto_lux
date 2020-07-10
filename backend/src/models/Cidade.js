@@ -5,8 +5,6 @@ class Cidade extends Model {
     super.init(
       {
         name: DataTypes.STRING,
-        estado_id: DataTypes.STRING,
-        pais_id: DataTypes.STRING,
       },
       {
         sequelize,
