@@ -66,32 +66,21 @@ module.exports = {
     });
     res.status(200).send(verify_product);
   },
-  async uploadImages(req, res) {
-    const { name, description } = req.body;
-    const verify_product = await Product.findAll({
-      atributes: ["id"],
-      where: {
-        name: name,
-      },
+  async uploadImage(req, res) {
+    const { usuario_id } = req.body;
+
+    Images.create({
+      path: path.resolve(__dirname, "..", "imgRepository", req.filename),
+      description: description,
+      name: "Imagem",
+      hidden: false,
+      user_id: 0,
     });
-    if (verify_product.length != 0) {
-      const insert_users = await Images.create({
-        path: path.resolve(__dirname, "..", "imgRepository", req.filename),
-        description: description,
-        product_id: verify_product[0].id,
-      });
-      res.status(200).send("OK");
-    } else {
-      res.status(500).send("Product not found");
-    }
-
-    // console.log(path.resolve(__dirname,'..','imgRepository',req.filename))
-
-    // res.status(200).sendFile(path.resolve(__dirname,'..','imgRepository',req.filename))
+    res.status(200).send("OK");
   },
   async getImgById(req, res) {
     const id = req.params.id;
-    const verify_product = await Images.findAll({
+    const verify_product = await Images.findOne({
       atributes: ["path"],
       where: {
         id: id,

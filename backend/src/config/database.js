@@ -8,7 +8,7 @@ module.exports = {
     timestamp: true,
     undescored: true,
   },
-  logging: true,
+  logging: false,
 };
 
 /*

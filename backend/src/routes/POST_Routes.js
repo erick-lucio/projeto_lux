@@ -2,6 +2,7 @@ const express = require("express");
 const UserController = require("../controllers/UserController");
 const ChatController = require("../controllers/ChatController");
 const DefaultController = require("../controllers/DefaultController");
+const ImageController = require("../controllers/ImageController");
 
 const postRoutes = express.Router();
 const multer = require("multer");
@@ -17,15 +18,6 @@ function check_autentication() {
 }
 
 postRoutes.post(
-  "/images",
-  function (req, res, next) {
-    //testa header
-
-    next();
-  },
-  UserController.createUser
-); //UserController.returnAllUsers);
-postRoutes.post(
   "/users",
   function (req, res, next) {
     //testa header
@@ -40,7 +32,12 @@ postRoutes.post(
     //testa header
     next();
   },
-  UserController.createUser
+  ImageController.uploadImage
+);
+postRoutes.post(
+  "/getusers",
+  DefaultController.getAuthKey,
+  UserController.getUser
 );
 postRoutes.post(
   "/messages",

@@ -18,10 +18,7 @@ function check_autentication() {
 }
 getRoutes.get(
   "/teste1",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.authFunction,
   DefaultController.testeFunction
 );
 getRoutes.get(
@@ -47,14 +44,6 @@ getRoutes.get(
     next();
   },
   ImageController.getUserImgs
-);
-getRoutes.get(
-  "/users",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
-  UserController.getUser
 );
 getRoutes.get(
   "/profile/:id",

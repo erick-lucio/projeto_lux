@@ -1,38 +1,57 @@
 const { Op, json } = require("sequelize");
 const bcrypt = require("bcrypt");
 
+const DefaultController = require("../controllers/DefaultController");
+
 const Users = require("../models/Users");
 const Images = require("../models/Imgs");
 const Img_Main = require("../models/Img_main");
 
 const temp_security_key = "ajk85HJH48HJFJHJjht4uhj98uf9898H8YH876876yh876";
+
 module.exports = {
   async getUser(req, res) {
-    const { email, password } = req.body;
-    const user = await Users.findAll({
-      attributes: ["name", "password"],
-      where: {
-        email: email,
-      },
-    });
-
-    if (user.length == 0) {
-      return res.status(400).send([{ succes: false }]);
-    }
-
-    try {
-      if (await bcrypt.compare(password, user[0].password)) {
-        //res.setHeader('Content-Type', 'application/json');
-        res.send([
-          { name: user[0].name },
-          { auth_id: temp_security_key },
-          { succes: true },
-        ]);
-      } else {
-        res.send([{ succes: false }]);
-      }
-    } catch {
-      res.status(500).send([{ succes: false }]);
+    if (req.body.email == undefined || req.body.password == undefined) {
+      res.status(400).send("Bad Request");
+    } else {
+      const { email, password } = req.body;
+      await Users.findAll({
+        attributes: ["id", "name", "password"],
+        where: {
+          email: email,
+        },
+      })
+        .then((usersResponse) => {
+          if (usersResponse.length == 0) {
+            res.status(400).send([{ succes: false }]);
+          } else {
+            try {
+              bcrypt
+                .compare(password, usersResponse[0].password)
+                .then((passCheck) => {
+                  if (passCheck) {
+                    res
+                      .status(200)
+                      .send([
+                        { name: usersResponse[0].name },
+                        {
+                          auth_id: DefaultController.authUserKey(
+                            usersResponse[0].id
+                          ),
+                        },
+                        { succes: true },
+                      ]);
+                  } else {
+                    res.status(400).send([{ succes: false }]);
+                  }
+                })
+                .catch();
+            } catch {
+              res.status(400).send([{ succes: false }]);
+            }
+          }
+        })
+        .catch();
     }
   },
   async getUsersByQueryId(req, res) {

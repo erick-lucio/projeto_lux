@@ -8,6 +8,7 @@ const Cidade = require("../models/Cidade");
 const Imgs = require("../models/Imgs");
 const Img_main = require("../models/Img_main");
 const Pais = require("../models/Pais");
+const AuthSession = require("../models/AuthSession");
 
 const connection = new Sequelize(dbConfig);
 
@@ -18,6 +19,7 @@ Cidade.init(connection);
 Imgs.init(connection);
 Img_main.init(connection);
 Pais.init(connection);
+AuthSession.init(connection);
 
 /*
 #########################################################
@@ -87,5 +89,13 @@ Imgs.belongsTo(Users, {
   foreignKey: "user_id",
 });
 ///////////////////////////////
-
+/*
+#########################################################
+Auth Session relations
+#########################################################
+*/
+AuthSession.belongsTo(Users, {
+  foreignKey: "user_id",
+});
+///////////////////////////////
 module.exports = connection;
