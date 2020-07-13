@@ -18,7 +18,7 @@ function check_autentication() {
 }
 getRoutes.get(
   "/teste1",
-  DefaultController.authFunction,
+  DefaultController.verifyHashKey,
   DefaultController.testeFunction
 );
 getRoutes.get(

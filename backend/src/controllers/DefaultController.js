@@ -10,6 +10,7 @@ const crypto = require("crypto");
 const { Op } = require("sequelize");
 const bcrypt = require("bcrypt");
 const Objects = require("../Objects.js");
+const { Fn, now } = require("sequelize/types/lib/utils");
 
 const frontKey = "senhafrontend";
 
@@ -130,27 +131,15 @@ module.exports = {
     req.headers.sublinovrau = "6565;";
     console.log(req.headers);
   },
-  async authFunction(req, res, next) {
-    console.log(req.header.frontauth);
-    console.log(req.header.authsession);
-    if (
-      req.headers.frontauth != frontKey &&
-      req.headers.authsession == undefined
-    ) {
-      res.status(401).send("unauthorized");
-    } else {
-      next();
-    }
-  },
-  async getAuthKey(req, res, next) {
+
+  async verifyFrontKey(req, res, next) {
     if (req.headers.frontauth == frontKey) {
       next();
     } else {
       res.status(401).send("unauthorized");
     }
   },
-  authUserKey(userId, authKey) {
-    if (authKey == undefined) {
+  generateAndReturnKey(userId) {    
       AuthSession.findAndCountAll({
         attributes: ["id"],
         where: {
@@ -191,13 +180,22 @@ module.exports = {
           }
         })
         .catch();
+    
+  },
+  async verifyHashKey(req,res,next){
+    
+    console.log(req.headers.frontauth);
+    console.log(req.headers.authsession);
+    if (
+      req.headers.frontauth != frontKey ||
+      req.headers.authsession == undefined
+    ) {
+      res.status(401).send("unauthorized");
     } else {
+      authKey = req.headers.authsession
       AuthSession.findAll({
         atributes: ["id", "user_id", "createdAt", "key"],
-        where: {
-          user_id: {
-            [Op.eq]: userId,
-          },
+        where: { 
           key: {
             [Op.eq]: authKey,
           },
@@ -211,49 +209,31 @@ module.exports = {
             console.log("Token Invalido");
             AuthSession.destroy({
               where: {
-                user_id: userId,
+                key: authKey,
               },
             })
               .then((resp) => {
-                return false;
+                return [{sucess:false}];
               })
               .catch();
             ///////////////###################
           } else {
-            if (responseSession.length > 1) {
-              AuthSession.destroy({
-                where: {
-                  user_id: userId,
-                },
-              })
-                .then((resp) => {
-                  let hashKey = generateHashKey();
-
-                  AuthSession.create({
-                    user_id: userId,
-                    key: hashKey,
-                  })
-                    .then((respCreate) => {
-                      return hashKey;
-                    })
-                    .catch();
-                })
-                .catch();
-            } else {
-              let hashKey = generateHashKey();
-
-              AuthSession.create({
+            AuthSession.update({
+              createdAt:Sequelize.fn("now"),
+              where: {
                 user_id: userId,
-                key: hashKey,
-              })
-                .then((respCreate) => {
-                  return hashKey;
-                })
-                .catch();
-            }
+              },
+            })
+            .then(responseAuthUpdate =>{
+              next()
+            })
+            .catch()
+            
           }
         })
         .catch();
+      
     }
+
   },
 };
