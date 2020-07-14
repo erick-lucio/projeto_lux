@@ -21,24 +21,19 @@ module.exports = {
           email: email,
         },
       })
-        .then((usersResponse) => {
+        .then(async (usersResponse) => {
           if (usersResponse.length == 0) {
             res.status(400).send([{ succes: false }]);
           } else {
             try {
               bcrypt
                 .compare(password, usersResponse[0].password)
-                .then((passCheck) => {
+                .then(async (passCheck) => {
                   if (passCheck) {
-                    console.log(
-                      DefaultController.generateAndReturnKey(
-                        usersResponse[0].id
-                      )
-                    );
                     res.status(200).send([
                       { name: usersResponse[0].name },
                       {
-                        auth_id: DefaultController.generateAndReturnKey(
+                        auth_id: await DefaultController.generateAndReturnKey(
                           usersResponse[0].id
                         ),
                       },

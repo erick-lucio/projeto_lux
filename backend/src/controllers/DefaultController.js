@@ -138,53 +138,47 @@ module.exports = {
       res.status(401).send([{ response: "unauthorized" }]);
     }
   },
-  generateAndReturnKey(userId, hashKey) {
-    AuthSession.findAll({
+  async generateAndReturnKey(userId, hashKey) {
+    hashKey = await generateHashKey();
+
+    await AuthSession.findAll({
       attributes: ["id"],
       where: {
         user_id: userId,
       },
     })
-      .then((resp) => {
+      .then(async (resp) => {
         if (resp.length == 0) {
-          hashKey = generateHashKey();
-
-          AuthSession.create({
+          await AuthSession.create({
             user_id: userId,
             key: hashKey,
           })
-            .then((respCreate) => {
-              //console.log(hashKey)
-              return hashKey;
-            })
+            .then(async (respCreate) => {})
             .catch();
         } else {
-          AuthSession.destroy({
+          await AuthSession.destroy({
             where: {
               user_id: userId,
             },
           })
-            .then((resp) => {
-              hashKey = generateHashKey();
+            .then(async (resp) => {
               //console.log(generateHashKey())
               //console.log(hashKey)
-              AuthSession.create({
+              await AuthSession.create({
                 user_id: userId,
                 key: hashKey,
               })
-                .then((respCreate) => {
-                  return hashKey;
-                })
+                .then(async (respCreate) => {})
                 .catch();
             })
             .catch();
         }
       })
       .catch();
+
+    return hashKey;
   },
   async verifyHashKey(req, res, next) {
-    console.log(req.headers.frontauth);
-    console.log(req.headers.authsession);
     if (
       req.headers.frontauth != frontKey ||
       req.headers.authsession == undefined
