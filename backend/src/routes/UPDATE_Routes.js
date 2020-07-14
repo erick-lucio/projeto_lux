@@ -8,35 +8,19 @@ const multer = require("multer");
 const path = require("path");
 const multerconfig = require("../config/multer");
 
-function check_autentication() {
-  if (true) {
-    next();
-  } else {
-    res.status(500).send("Error Autentication");
-  }
-}
 updateRoutes.put(
   "/images",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   UserController.getUser
 );
 updateRoutes.put(
   "/users",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   UserController.getUser
 );
 updateRoutes.put(
   "/messages",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   UserController.getUser
 );
 module.exports = updateRoutes;

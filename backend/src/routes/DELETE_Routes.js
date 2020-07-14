@@ -8,35 +8,19 @@ const multer = require("multer");
 const path = require("path");
 const multerconfig = require("../config/multer");
 
-function check_autentication() {
-  if (true) {
-    next();
-  } else {
-    res.status(500).send("Error Autentication");
-  }
-}
 deleteRoutes.delete(
   "/images",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   UserController.getUser
 );
 deleteRoutes.delete(
   "/users",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   UserController.getUser
 );
 deleteRoutes.delete(
   "/messages",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   UserController.getUser
 );
 module.exports = deleteRoutes;

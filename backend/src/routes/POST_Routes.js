@@ -19,14 +19,12 @@ function check_autentication() {
 
 postRoutes.post(
   "/users",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyFrontKey,
   UserController.createUser
 );
 postRoutes.post(
   "/images",
+  DefaultController.verifyHashKey,
   multer(multerconfig).single("file"),
   function (req, res, next) {
     //testa header
@@ -36,15 +34,12 @@ postRoutes.post(
 );
 postRoutes.post(
   "/getusers",
-  DefaultController.getAuthKey,
+  DefaultController.verifyFrontKey,
   UserController.getUser
 );
 postRoutes.post(
   "/messages",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   UserController.createUser
 );
 

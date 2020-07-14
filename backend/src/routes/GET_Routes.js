@@ -9,13 +9,6 @@ const multer = require("multer");
 const path = require("path");
 const multerconfig = require("../config/multer");
 
-function check_autentication() {
-  if (true) {
-    next();
-  } else {
-    res.status(401).send("Error Autentication");
-  }
-}
 getRoutes.get(
   "/teste1",
   DefaultController.verifyHashKey,
@@ -23,51 +16,33 @@ getRoutes.get(
 );
 getRoutes.get(
   "/config",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyFrontKey,
   DefaultController.configDatabase
 );
 getRoutes.get(
   "/images/:id",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   ImageController.getImgById
 );
 getRoutes.get(
   "/userimgs",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   ImageController.getUserImgs
 );
 getRoutes.get(
   "/profile/:id",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   UserController.getUsersByQueryId
 );
 
 getRoutes.get(
   "/messages",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   ChatController.getMessageById
 );
 getRoutes.get(
   "/chat",
-  function (req, res, next) {
-    //testa header
-    next();
-  },
+  DefaultController.verifyHashKey,
   ChatController.getMessage
 );
 module.exports = getRoutes;

@@ -10,7 +10,6 @@ const crypto = require("crypto");
 const { Op } = require("sequelize");
 const bcrypt = require("bcrypt");
 const Objects = require("../Objects.js");
-const { Fn, now } = require("sequelize/types/lib/utils");
 
 const frontKey = "senhafrontend";
 
@@ -128,112 +127,111 @@ module.exports = {
     //
   },
   async testeFunction(req, res) {
-    req.headers.sublinovrau = "6565;";
     console.log(req.headers);
+    res.status(200).send("ok");
   },
 
   async verifyFrontKey(req, res, next) {
     if (req.headers.frontauth == frontKey) {
       next();
     } else {
-      res.status(401).send("unauthorized");
+      res.status(401).send([{ response: "unauthorized" }]);
     }
   },
-  generateAndReturnKey(userId) {    
-      AuthSession.findAndCountAll({
-        attributes: ["id"],
-        where: {
-          user_id: userId,
-        },
-      })
-        .then((resp) => {
-          if (resp.count == 0) {
-            let hashKey = generateHashKey();
+  generateAndReturnKey(userId, hashKey) {
+    AuthSession.findAll({
+      attributes: ["id"],
+      where: {
+        user_id: userId,
+      },
+    })
+      .then((resp) => {
+        if (resp.length == 0) {
+          hashKey = generateHashKey();
 
-            AuthSession.create({
+          AuthSession.create({
+            user_id: userId,
+            key: hashKey,
+          })
+            .then((respCreate) => {
+              //console.log(hashKey)
+              return hashKey;
+            })
+            .catch();
+        } else {
+          AuthSession.destroy({
+            where: {
               user_id: userId,
-              key: hashKey,
-            })
-              .then((respCreate) => {
-                return hashKey;
-              })
-              .catch();
-          } else {
-            AuthSession.destroy({
-              where: {
+            },
+          })
+            .then((resp) => {
+              hashKey = generateHashKey();
+              //console.log(generateHashKey())
+              //console.log(hashKey)
+              AuthSession.create({
                 user_id: userId,
-              },
-            })
-              .then((resp) => {
-                let hashKey = generateHashKey();
-
-                AuthSession.create({
-                  user_id: userId,
-                  key: hashKey,
-                })
-                  .then((respCreate) => {
-                    return hashKey;
-                  })
-                  .catch();
+                key: hashKey,
               })
-              .catch();
-          }
-        })
-        .catch();
-    
+                .then((respCreate) => {
+                  return hashKey;
+                })
+                .catch();
+            })
+            .catch();
+        }
+      })
+      .catch();
   },
-  async verifyHashKey(req,res,next){
-    
+  async verifyHashKey(req, res, next) {
     console.log(req.headers.frontauth);
     console.log(req.headers.authsession);
     if (
       req.headers.frontauth != frontKey ||
       req.headers.authsession == undefined
     ) {
-      res.status(401).send("unauthorized");
+      res.status(401).send([{ response: "unauthorized" }]);
     } else {
-      authKey = req.headers.authsession
+      authKey = req.headers.authsession;
       AuthSession.findAll({
         atributes: ["id", "user_id", "createdAt", "key"],
-        where: { 
-          key: {
-            [Op.eq]: authKey,
-          },
+        where: {
+          key: authKey,
         },
       })
         .then((responseSession) => {
-          var tokenTime = new Date(responseSession[0].createdAt);
-          var timeNow = new Date();
-          tokenTime.setMinutes(tokenTime.getMinutes() + 30);
-          if (tokenTime.setMinutes(tokenTime.getMinutes() + 30) > timeNow) {
-            console.log("Token Invalido");
-            AuthSession.destroy({
-              where: {
-                key: authKey,
-              },
-            })
-              .then((resp) => {
-                return [{sucess:false}];
+          if (responseSession[0] != undefined || null) {
+            var tokenTime = new Date(responseSession[0].createdAt);
+            var timeNow = new Date();
+            tokenTime.setMinutes(tokenTime.getMinutes() + 30);
+            if (tokenTime.setMinutes(tokenTime.getMinutes() + 30) > timeNow) {
+              console.log("Token Expirado");
+              AuthSession.destroy({
+                where: {
+                  key: authKey,
+                },
               })
-              .catch();
-            ///////////////###################
+                .then((resp) => {
+                  res.status(401).send([{ response: "unauthorized" }]);
+                })
+                .catch();
+              ///////////////###################
+            } else {
+              AuthSession.update({
+                createdAt: Sequelize.fn("now"),
+                where: {
+                  key: authKey,
+                },
+              })
+                .then((responseAuthUpdate) => {
+                  next();
+                })
+                .catch();
+            }
           } else {
-            AuthSession.update({
-              createdAt:Sequelize.fn("now"),
-              where: {
-                user_id: userId,
-              },
-            })
-            .then(responseAuthUpdate =>{
-              next()
-            })
-            .catch()
-            
+            res.status(401).send([{ response: "unauthorized" }]);
           }
         })
         .catch();
-      
     }
-
   },
 };

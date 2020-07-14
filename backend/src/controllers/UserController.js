@@ -12,7 +12,7 @@ const temp_security_key = "ajk85HJH48HJFJHJjht4uhj98uf9898H8YH876876yh876";
 module.exports = {
   async getUser(req, res) {
     if (req.body.email == undefined || req.body.password == undefined) {
-      res.status(400).send("Bad Request");
+      res.status(400).send([{ response: "Bad Request" }]);
     } else {
       const { email, password } = req.body;
       await Users.findAll({
@@ -30,17 +30,20 @@ module.exports = {
                 .compare(password, usersResponse[0].password)
                 .then((passCheck) => {
                   if (passCheck) {
-                    res
-                      .status(200)
-                      .send([
-                        { name: usersResponse[0].name },
-                        {
-                          auth_id: DefaultController.authUserKey(
-                            usersResponse[0].id
-                          ),
-                        },
-                        { succes: true },
-                      ]);
+                    console.log(
+                      DefaultController.generateAndReturnKey(
+                        usersResponse[0].id
+                      )
+                    );
+                    res.status(200).send([
+                      { name: usersResponse[0].name },
+                      {
+                        auth_id: DefaultController.generateAndReturnKey(
+                          usersResponse[0].id
+                        ),
+                      },
+                      { succes: true },
+                    ]);
                   } else {
                     res.status(400).send([{ succes: false }]);
                   }
