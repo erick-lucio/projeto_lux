@@ -21,7 +21,7 @@
     "nodemon": "^1.19.4",
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.19.6"
+    "sequelize": "^6.3.3"
   },
   "engines": {
     "node": "12.16.1"

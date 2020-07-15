@@ -1,5 +1,5 @@
 GET http://localhost:3100/config
-
+frontauth:senhafrontend
 ###
 
 
@@ -39,8 +39,11 @@ Content-Type: application/json
 
 ###
 
-POST   http://localhost:3100/getusers
+GET  http://localhost:3100/teste1
+frontauth:senhafrontend
 Content-Type: application/json
+authsession:7f474456ccb9b2c7e309212b6ec487
+
 
 {      
     "password":"yuri20323",

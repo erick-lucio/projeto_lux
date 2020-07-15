@@ -6,7 +6,7 @@ const Pais = require("../models/Pais");
 const AuthSession = require("../models/AuthSession");
 const cryptoRandomString = require("crypto-random-string");
 const crypto = require("crypto");
-
+const sequelize = require("sequelize");
 const { Op } = require("sequelize");
 const bcrypt = require("bcrypt");
 const Objects = require("../Objects.js");
@@ -15,6 +15,9 @@ const frontKey = "senhafrontend";
 
 function generateHashKey() {
   return cryptoRandomString({ length: 30 });
+}
+function addMinutes(date, minutes) {
+  return new Date(date.getTime() + minutes * 60000);
 }
 module.exports = {
   async configDatabase(req, res) {
@@ -127,8 +130,7 @@ module.exports = {
     //
   },
   async testeFunction(req, res) {
-    console.log(req.headers);
-    res.status(200).send("ok");
+    res.status(200).send([{ sucess: true }]);
   },
 
   async verifyFrontKey(req, res, next) {
@@ -151,7 +153,7 @@ module.exports = {
         if (resp.length == 0) {
           await AuthSession.create({
             user_id: userId,
-            key: hashKey,
+            auth_key: hashKey,
           })
             .then(async (respCreate) => {})
             .catch();
@@ -166,7 +168,7 @@ module.exports = {
               //console.log(hashKey)
               await AuthSession.create({
                 user_id: userId,
-                key: hashKey,
+                auth_key: hashKey,
               })
                 .then(async (respCreate) => {})
                 .catch();
@@ -187,21 +189,22 @@ module.exports = {
     } else {
       authKey = req.headers.authsession;
       AuthSession.findAll({
-        atributes: ["id", "user_id", "createdAt", "key"],
+        atributes: ["id", "user_id", "updatedAt", "auth_key"],
         where: {
-          key: authKey,
+          auth_key: authKey,
         },
       })
         .then((responseSession) => {
           if (responseSession[0] != undefined || null) {
-            var tokenTime = new Date(responseSession[0].createdAt);
+            var tokenTime = new Date(responseSession[0].updatedAt);
             var timeNow = new Date();
-            tokenTime.setMinutes(tokenTime.getMinutes() + 30);
-            if (tokenTime.setMinutes(tokenTime.getMinutes() + 30) > timeNow) {
+            tokenTime = addMinutes(tokenTime, 30);
+
+            if (tokenTime.getTime() < timeNow.getTime()) {
               console.log("Token Expirado");
               AuthSession.destroy({
                 where: {
-                  key: authKey,
+                  auth_key: authKey,
                 },
               })
                 .then((resp) => {
@@ -210,16 +213,22 @@ module.exports = {
                 .catch();
               ///////////////###################
             } else {
-              AuthSession.update({
-                createdAt: Sequelize.fn("now"),
-                where: {
-                  key: authKey,
-                },
-              })
+              console.log("Token ok");
+              console.log(authKey);
+              AuthSession.update(
+                { updatedAt: sequelize.fn("now") },
+                {
+                  where: { auth_key: authKey },
+                }
+              )
                 .then((responseAuthUpdate) => {
+                  console.log(typeof responseAuthUpdate);
+                  console.log(responseAuthUpdate[0]);
                   next();
                 })
-                .catch();
+                .catch((responseAuthUpdate) => {
+                  console.log(responseAuthUpdate);
+                });
             }
           } else {
             res.status(401).send([{ response: "unauthorized" }]);
