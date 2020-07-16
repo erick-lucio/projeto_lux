@@ -42,7 +42,7 @@ Content-Type: application/json
 GET  http://localhost:3100/teste1
 frontauth:senhafrontend
 Content-Type: application/json
-authsession:7f474456ccb9b2c7e309212b6ec487
+authsession:bfbf9acffd572ea746073926499e6a
 
 
 {      

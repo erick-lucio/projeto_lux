@@ -194,15 +194,16 @@ module.exports = {
           auth_key: authKey,
         },
       })
-        .then((responseSession) => {
+        .then(async (responseSession) => {
           if (responseSession[0] != undefined || null) {
             var tokenTime = new Date(responseSession[0].updatedAt);
             var timeNow = new Date();
+
             tokenTime = addMinutes(tokenTime, 30);
 
             if (tokenTime.getTime() < timeNow.getTime()) {
               console.log("Token Expirado");
-              AuthSession.destroy({
+              await AuthSession.destroy({
                 where: {
                   auth_key: authKey,
                 },
@@ -214,16 +215,14 @@ module.exports = {
               ///////////////###################
             } else {
               console.log("Token ok");
-              console.log(authKey);
-              AuthSession.update(
-                { updatedAt: sequelize.fn("now") },
+
+              await AuthSession.update(
+                [{ updatedAt: sequelize.fn("now") }], //sequelize.fn("now") },
                 {
                   where: { auth_key: authKey },
                 }
               )
                 .then((responseAuthUpdate) => {
-                  console.log(typeof responseAuthUpdate);
-                  console.log(responseAuthUpdate[0]);
                   next();
                 })
                 .catch((responseAuthUpdate) => {
