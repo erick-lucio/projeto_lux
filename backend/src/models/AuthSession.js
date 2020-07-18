@@ -5,7 +5,8 @@ class AuthSession extends Model {
     super.init(
       {
         auth_key: DataTypes.STRING,
-        user_id: DataTypes.STRING,
+        user_id: DataTypes.INTEGER,
+        updatedAt:DataTypes.DATE
       },
       {
         sequelize,
