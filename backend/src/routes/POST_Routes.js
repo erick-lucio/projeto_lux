@@ -33,6 +33,11 @@ postRoutes.post(
   DefaultController.verifyFrontKey,
   UserController.getUser
 );
+postRoutes.post(
+  "/mainimg",
+  DefaultController.verifyHashKey,
+  ImageController.setMainImg
+);
 ///////////// profile e chat serao feitos posteriormente
 postRoutes.post(
   "/messages",

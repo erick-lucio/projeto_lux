@@ -8,6 +8,7 @@ const AuthSession = require("../models/AuthSession");
 
 const { Op } = require("sequelize");
 const fs = require("fs");
+const Imgs = require("../models/Imgs");
 
 module.exports = {
   async createProductCategory(req, res) {},
@@ -104,5 +105,62 @@ module.exports = {
     }
     Images.destroy({ where: { id: id } });
     res.status(200).send([{ succes: true }]);
+  },
+  async setMainImg(req, res) {
+    const { img_id } = req.body;
+    user_id = await AuthSession.findAll({
+      attributes: ["user_id"],
+      where: { auth_key: req.headers.authsession },
+    });
+    search_img = await Images.findAll({
+      where: {
+        id: img_id,
+      },
+    });
+    imgs = await Img_Main.findAll({
+      attributes: ["user_id", "img_id"],
+      where: { user_id: user_id[0].user_id },
+    });
+    if (search_img.length == 0) {
+      res.status(400).send([{ succes: false }, { reason: "Img not Fouund" }]);
+    } else {
+      if (imgs.length > 1) {
+        await Img_Main.destroy({ where: { user_id: user_id[0].user_id } });
+      }
+      if (imgs.length == 0) {
+        await Img_Main.create({ user_id: user_id[0].user_id, img_id: img_id });
+      } else {
+        await Img_Main.update(
+          { img_id: img_id },
+          {
+            where: {
+              user_id: user_id[0].user_id,
+            },
+          }
+        );
+      }
+      res.status(200).send([{ succes: true }]);
+    }
+  },
+  async getMainImg(req, res) {
+    user_id = await AuthSession.findAll({
+      attributes: ["user_id"],
+      where: { auth_key: req.headers.authsession },
+    });
+
+    imgMainId = await Img_Main.findAll({
+      where: { user_id: user_id[0].user_id },
+    });
+
+    if (imgMainId.length == 0) {
+      res
+        .status(401)
+        .send([
+          { succes: false },
+          { reason: "This User Dont have a main Img" },
+        ]);
+    } else {
+      res.status(200).send([{ succes: true }, { img_id: imgMainId[0].img_id }]);
+    }
   },
 };
