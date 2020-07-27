@@ -6,7 +6,7 @@ class AuthSession extends Model {
       {
         auth_key: DataTypes.STRING,
         user_id: DataTypes.INTEGER,
-        updatedAt:DataTypes.DATE
+        updatedAt: DataTypes.DATE,
       },
       {
         sequelize,

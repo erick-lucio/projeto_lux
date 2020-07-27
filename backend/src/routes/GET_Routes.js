@@ -29,6 +29,8 @@ getRoutes.get(
   DefaultController.verifyHashKey,
   ImageController.getUserImgs
 );
+
+///////////// profile e chat serao feitos posteriormente
 getRoutes.get(
   "/profile/:id",
   DefaultController.verifyHashKey,

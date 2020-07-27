@@ -130,8 +130,6 @@ module.exports = {
     //
   },
   async testeFunction(req, res) {
-    
-
     res.status(200).send([{ sucess: true }]);
   },
 
@@ -219,18 +217,17 @@ module.exports = {
               console.log("Token ok");
 
               await AuthSession.update(
-                { auth_key: authKey}, 
+                { auth_key: authKey },
                 {
                   where: { auth_key: authKey },
                 }
               )
                 .then((responseAuthUpdate) => {
-                  if(responseAuthUpdate[0]==1){
+                  if (responseAuthUpdate[0] == 1) {
                     next();
-                  }else{
+                  } else {
                     res.status(401).send([{ response: "unauthorized" }]);
                   }
-                  
                 })
                 .catch((responseAuthUpdate) => {
                   console.log(responseAuthUpdate);

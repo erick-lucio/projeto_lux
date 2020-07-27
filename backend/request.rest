@@ -42,7 +42,7 @@ Content-Type: application/json
 GET  http://localhost:3100/teste1
 frontauth:senhafrontend
 Content-Type: application/json
-authsession:a93f71f8f69f731eb118dfd70ad849
+authsession:ac53eb791a1206c060d3ca8eee0a3e
 
 {      
     "password":"yuri20323",
@@ -58,4 +58,21 @@ Content-Type: application/json
 {      
     "password":"yuri20323",
     "email":"email@email.com"
+}
+
+####
+
+POST  http://localhost:3100/users
+frontauth:senhafrontend
+Content-Type: application/json
+
+{      
+    "name":"erick",
+    "password":"cuzim12",
+    "email":"email@cavalao",
+    "permissao":0,
+    "idade":44,
+    "estadoName":"Minas Gerais",
+    "cidadeName":"Pedro Leopoldo",
+    "paisName":"Brasil"
 }

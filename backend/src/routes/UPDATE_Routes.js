@@ -7,20 +7,22 @@ const updateRoutes = express.Router();
 const multer = require("multer");
 const path = require("path");
 const multerconfig = require("../config/multer");
-
+/*
 updateRoutes.put(
   "/images",
   DefaultController.verifyHashKey,
-  UserController.getUser
+  UserController.updateImages
 );
 updateRoutes.put(
   "/users",
   DefaultController.verifyHashKey,
-  UserController.getUser
+  UserController.updateUsers
 );
+///////////// profile e chat serao feitos posteriormente
 updateRoutes.put(
   "/messages",
   DefaultController.verifyHashKey,
   UserController.getUser
 );
+*/
 module.exports = updateRoutes;

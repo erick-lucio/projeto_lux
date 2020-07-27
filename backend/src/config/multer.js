@@ -19,14 +19,14 @@ module.exports = {
     },
   }),
   limits: {
-    fileSize: 5 * 1024 * 1024,
+    fileSize: 10 * 1024 * 1024,
   },
   fileFilter: (req, file, cb) => {
     const allowMimes = ["image/jpeg", "image/jpg", "image/png"];
     if (allowMimes.includes(file.mimetype)) {
       cb(null, true);
     } else {
-      cb(new Error("Fommato nao aceito"));
+      cb(new Error("Formato nao aceito"));
     }
   },
 };

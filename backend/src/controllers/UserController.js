@@ -6,6 +6,10 @@ const DefaultController = require("../controllers/DefaultController");
 const Users = require("../models/Users");
 const Images = require("../models/Imgs");
 const Img_Main = require("../models/Img_main");
+const Cidade = require("../models/Cidade");
+const Estado = require("../models/Estado");
+const Chat = require("../models/Chat");
+const Pais = require("../models/Pais");
 
 const temp_security_key = "ajk85HJH48HJFJHJjht4uhj98uf9898H8YH876876yh876";
 
@@ -54,29 +58,70 @@ module.exports = {
   },
   async getUsersByQueryId(req, res) {
     const id = req.params.id;
-    const user_data = await Users.findAll({
+    Users.findAll({
       where: { id: id },
     });
     res.status(200).send(json(user_data));
   },
   async createUser(req, res) {
-    let { name, password, email } = req.body;
-    let users_check = await Usuarios.findAll({
+    let {
+      name,
+      password,
+      email,
+      permissao,
+      idade,
+      estadoName,
+      cidadeName,
+      paisName,
+    } = req.body;
+    await Users.findAll({
       attributes: ["password", "email"],
       where: {
         email: email,
       },
-    });
-    if (users_check.length != 0) {
-      return res.send([{ succes: false }]);
-    } else {
-      const hashedPassword = await bcrypt.hash(password, 10);
-      let user_create = await Usuarios.create({
-        name: name,
-        password: hashedPassword,
-        email: email,
-      });
-      return res.send([{ succes: true }]);
-    }
+    })
+      .then(async (userResponse) => {
+        if (userResponse.length == 0) {
+          const hashedPassword = await bcrypt.hash(password, 10);
+          const pais = await Pais.findAll({
+            attributes: ["id"],
+            where: { name: paisName },
+          });
+          const estado = await Estado.findAll({
+            attributes: ["id"],
+            where: { name: estadoName },
+          });
+          const cidade = await Cidade.findAll({
+            attributes: ["id"],
+            where: { name: cidadeName },
+          });
+
+          await Users.create({
+            name: name,
+            password: hashedPassword,
+            email: email,
+            rua: "",
+            sobre: "",
+            permissao: permissao,
+            idade: idade,
+            estado_id: estado[0].id,
+            cidade_id: cidade[0].id,
+            pais_id: pais[0].id,
+          })
+            .then((response) => {
+              return res.status(200).send([{ succes: true }]);
+            })
+            .catch((response) => {});
+        } else {
+          res.status(400).send([{ sucess: false }, { reason: "exist" }]);
+        }
+      })
+      .catch((userResponse) => {});
+  },
+  async deleteUser(req, res) {
+    const { id } = req.body;
+
+    Users.destroy({ where: { id: id } });
+    res.status(200).send([{ succes: true }]);
   },
 };

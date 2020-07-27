@@ -26,10 +26,6 @@ postRoutes.post(
   "/images",
   DefaultController.verifyHashKey,
   multer(multerconfig).single("file"),
-  function (req, res, next) {
-    //testa header
-    next();
-  },
   ImageController.uploadImage
 );
 postRoutes.post(
@@ -37,6 +33,7 @@ postRoutes.post(
   DefaultController.verifyFrontKey,
   UserController.getUser
 );
+///////////// profile e chat serao feitos posteriormente
 postRoutes.post(
   "/messages",
   DefaultController.verifyHashKey,
