@@ -1,13 +1,12 @@
-import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& .MuiTextField-root': {
+    "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: 80+'%',
-      
+      width: 80 + "%",
     },
   },
 }));
@@ -26,7 +25,6 @@ export default function TextArea(props) {
           placeholder={props.placeholder}
         />
       </div>
-
     </div>
   );
 }
