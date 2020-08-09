@@ -10,7 +10,17 @@ import { useSelector, useDispatch } from "react-redux";
 //import store from "../../store/index";
 
 const Test_page = () => {
-  return <></>;
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state)
+  console.log(state)
+  const insert = (variable1?: string) => {
+    dispatch({type:"T1",name:variable1})
+  }
+  return (
+    <>
+      <button onClick={()=>insert()}>click me</button>
+    </>);
+
 };
 
 export default Test_page;

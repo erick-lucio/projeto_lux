@@ -7,11 +7,12 @@ import {
   MemoryRouter,
   Router,
 } from "react-router-dom";
+/*My Component imports */
 import Login from "./components/loginPage/Login_Screen";
 import SignIn from "./components/signInPage/SignIn_Screen";
 import PageNotFound from "./components/404Page/Page404";
 import Footer from "./components/footer/Footer";
-import Example from "./components/startPage/Testboot";
+import Example from "./components/testPage/Test_page";
 import { createBrowserHistory } from "history";
 import Header from "./components/header/Header";
 import MainPage from "./components/mainPage/MainPage";
@@ -19,10 +20,11 @@ import About from "./components/aboutPage/About";
 import Test_page from "./components/testPage/Test_page";
 import Logs from "./components/logs/Logs";
 import AdminPage from "./components/admin/AdminPanel";
+
 /*css imports */
 
 /*functions import */
-//import * as store from "./store/index";
+import store from "./store/Store";
 import { Provider } from "react-redux";
 
 export default function Routes() {
@@ -30,9 +32,10 @@ export default function Routes() {
   const history = createBrowserHistory();
   // window.location.pathname= "/";
   // console.log()
-  //<Provider store={store}>  </Provider>
+   
   return (
     <Router history={history}>
+      <Provider store={store}> 
       <Header />
       <Switch>
         <Route exact path="/admin" component={AdminPage} />
@@ -45,7 +48,9 @@ export default function Routes() {
         <Route exact path="/logs" component={Logs} />
         <Route component={PageNotFound} />
       </Switch>
-      <Footer />
+        <Footer />
+        </Provider>
     </Router>
+
   );
 }
