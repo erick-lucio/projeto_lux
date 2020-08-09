@@ -1,5 +1,5 @@
 import { Action } from '../Actions';
-interface Hosts{
+export interface Hosts{
   backend_url:string,
   http:boolean,
   https:boolean
