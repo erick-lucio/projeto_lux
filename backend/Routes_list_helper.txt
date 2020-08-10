@@ -1,0 +1,138 @@
+1 - delete"/images",
+		req:
+			header:
+				frontauth:senhadofront
+				authsession:idUsuario
+			body:
+		
+		res:
+			header:
+			
+			body:
+				unauthorized ou sucess,reason
+			
+2 - delete"/users",
+		req:
+			header:
+				frontauth:senhadofront
+				authsession:idUsuario
+			body:
+		
+		res:
+			header:
+			
+			body:
+				unauthorized ou true		
+3 - get"/config",
+		req:
+			header:
+				frontauth:senhadofront
+				
+			body:
+		
+		res:
+			header:
+			
+			body:
+				unauthorized ou sucess,reason		
+4 - get"/images/:id",
+		req:
+			header:
+				frontauth:senhadofront
+				authsession:idUsuario
+			body:
+			
+			params:
+				id
+		
+		res:
+			header:
+			
+			body:
+				unauthorized ou sucess,reason ou IMG_FILE		
+5 - get"/userimgs",
+		req:
+			header:
+				frontauth:senhadofront
+				authsession:idUsuario
+			body:
+		
+		res:
+			header:
+			
+			body:
+				unauthorized ou [JSON[img_ids]]		
+6 - get"/mainimg",
+		req:
+			header:
+				frontauth:senhadofront
+				authsession:idUsuario
+			body:
+		
+		res:
+			header:
+			
+			body:
+				unauthorized ou sucess,img_id		
+7 - post"/users",
+		req:
+			header:
+				frontauth:senhadofront
+				
+			body:
+				name,
+				password,
+				email,
+				permissao,
+				idade,
+				estadoName,
+				cidadeName,
+				paisName,
+		res:
+			header:
+			
+			body:
+				unauthorized ou sucess,sucess,reason		
+8 - post"/images",
+		req:
+			header:
+				frontauth:senhadofront
+				authsession:idUsuario
+			body:
+				type file:file
+				description,
+				hidden,
+				user_id
+				
+		res:
+			header:
+			
+			body:
+				unauthorized ou sucess		
+9 - post"/getusers",
+		req:
+			header:
+				frontauth:senhadofront
+				
+			body:
+				email
+				password
+				
+		res:
+			header:
+			
+			body:
+				unauthorized ou sucess,reason ou sucess		
+10 - post"/mainimg",
+		req:
+			header:
+				frontauth:senhadofront
+				authsession:idUsuario
+			body:
+				img_id
+				
+		res:
+			header:
+			
+			body:
+				unauthorized ou sucess,reason ou sucess			

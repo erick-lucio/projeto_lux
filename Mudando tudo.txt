@@ -1,0 +1,9 @@
+Now this will be as App(Backend+Website+App)
+This app will be about Beauty
+    Alternar Disponibilidade do Esteticista
+    Perfil de esteticista
+    Agendar compromisso
+    Geolocalização
+    Integração de pagamento
+    Estimativa de faturamento
+    Vista de calor no Admin

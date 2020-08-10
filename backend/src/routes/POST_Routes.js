@@ -9,14 +9,6 @@ const multer = require("multer");
 const path = require("path");
 const multerconfig = require("../config/multer");
 
-function check_autentication() {
-  if (true) {
-    next();
-  } else {
-    res.status(500).send("Error Autentication");
-  }
-}
-
 postRoutes.post(
   "/users",
   DefaultController.verifyFrontKey,

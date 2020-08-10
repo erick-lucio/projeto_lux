@@ -125,7 +125,7 @@ module.exports = {
       })
       .catch((paisResponse) => {});
 
-    await res.status(200).send("Admin Created");
+    await res.status(200).send([{ sucess: true }, { reason: "Admin created" }]);
 
     //
   },

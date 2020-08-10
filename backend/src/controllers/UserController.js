@@ -16,7 +16,7 @@ const temp_security_key = "ajk85HJH48HJFJHJjht4uhj98uf9898H8YH876876yh876";
 module.exports = {
   async getUser(req, res) {
     if (req.body.email == undefined || req.body.password == undefined) {
-      res.status(400).send([{ response: "Bad Request" }]);
+      res.status(400).send([{ succes: false }, { reason: "Bad Request" }]);
     } else {
       const { email, password } = req.body;
       await Users.findAll({
