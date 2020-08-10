@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 //import store from "../../store/index";
 import { combinedInterface } from '../../store/Store';
-
+import { Title } from '../../styles/Styles';
 const Test_page = () => {
   const dispatch = useDispatch();
   const state:any = useSelector<combinedInterface>((state:combinedInterface) => state.auth.name) 
@@ -22,6 +22,7 @@ const Test_page = () => {
       <button onClick={() => insert("lucao")}>Mudar nomee</button>  
       <br></br>
       <h1>{state}</h1>
+    <Title>adamastor</Title>
     </>);
 
 };

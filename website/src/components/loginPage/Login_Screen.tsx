@@ -14,8 +14,7 @@ import { useCookies } from "react-cookie";
 
 /*css imports */
 
-/* import urls*/
-import urls from "../../index";
+
 
 /* */
 export default function Login() {
