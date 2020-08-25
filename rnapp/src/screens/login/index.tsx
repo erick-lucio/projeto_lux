@@ -11,14 +11,11 @@ const login: React.FC = () => {
   
   return (
     <Container  statusHeight={StatusBar.currentHeight}>
-      <TouchButton 
-      onPress={()=>goMain()}
-      underlayColor="#faa"
-      >
+  
         <TextView>
-          login
+          loging
         </TextView>
-      </TouchButton>
+      
 
     </Container>
   );

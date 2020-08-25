@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {Link} from 'react-router-native';
+
 
 interface Myprops {
   statusHeight: any

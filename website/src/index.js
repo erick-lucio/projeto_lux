@@ -1,6 +1,6 @@
 /*component imports */
 import React from "react";
-import ReactDOM from "react-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import Routes from "./Routes";
 
@@ -10,5 +10,11 @@ import Routes from "./Routes";
 //constantes historico
 
 
+import { hydrate, render } from "react-dom";
 
-ReactDOM.render(<Routes />, document.getElementById("main"));
+const rootElement = document.getElementById("root");
+if (rootElement.hasChildNodes()) {
+  hydrate(<Routes />, rootElement);
+} else {
+  render(<Routes />, rootElement);
+}

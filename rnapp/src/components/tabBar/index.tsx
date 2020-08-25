@@ -1,19 +1,25 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Text } from 'react-native';
-import {useHistory} from 'react-router-native';
+import {useHistory,useLocation} from 'react-router-native';
 import { TabMain ,TextView,TabsViews,TouchButton} from './styles';
 
 const tabBar: React.FC = () => {
   const history = useHistory();
+  var locatin = useLocation();
+
   function goMain(){
     history.push("/")
   }
   function goLogin(){
     history.push("/login")
+    
+  }
+  function numero2(){
+    console.log(locatin.pathname)
   }
   return (
     <TabMain>
-      <TabsViews>
+      <TabsViews borderTopWidth={locatin.pathname=="/"?true:false}>
         <TouchButton 
           onPress={()=>goMain()}        
           underlayColor={"#03fc77"}
@@ -23,7 +29,7 @@ const tabBar: React.FC = () => {
           </TextView>
         </TouchButton>
       </TabsViews>
-      <TabsViews>
+      <TabsViews borderTopWidth={locatin.pathname=="/login"?true:false}>
         <TouchButton  
           onPress={()=>goLogin()}
           underlayColor={"#03fc77"}
@@ -35,7 +41,7 @@ const tabBar: React.FC = () => {
       </TabsViews>
       <TabsViews>
         <TouchButton  
-          onPress={()=>alert("Teste alerta")}
+          onPress={()=>numero2()}
           underlayColor={"#03fc77"}
         >
           <TextView>
