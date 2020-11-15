@@ -1,20 +1,7 @@
-/*component imports */
 import React from "react";
-
-import "bootstrap/dist/css/bootstrap.min.css";
+import ReactDOM from "react-dom";
 import Routes from "./Routes";
+import "./index.css";
 
-/*css imports */
-//import 'bootstrap/dist/css/bootstrap.min.css';
-
-//constantes historico
-
-
-import { hydrate, render } from "react-dom";
-
-const rootElement = document.getElementById("root");
-if (rootElement.hasChildNodes()) {
-  hydrate(<Routes />, rootElement);
-} else {
-  render(<Routes />, rootElement);
-}
+const dom_id = document.getElementById("body_id");
+ReactDOM.render(<Routes />, dom_id);

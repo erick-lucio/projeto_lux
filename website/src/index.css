@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+#body_id {
+  height: 100vh;
+}
+@font-face {
+  font-family: FontHoustron;
+  src: url(./assets/fonts/Houston.otf);
+  
+}
+@font-face {
+  font-family: FontSomeone;
+  src: url(./assets/fonts/Someone.otf);
+  
+}
+@font-face {
+  font-family: FontMentality;
+  src: url(./assets/fonts/Mentality.otf);
+  
+}
+@font-face {
+  font-family: FontBonjour;
+  src: url(./assets/fonts/Bonjour.otf);
+  
+}
+@font-face {
+  font-family: FontNeonTech;
+  src: url(./assets/fonts/NeonTech.ttf);
+  
+}
+@font-face {
+  font-family: FontBioTech;
+  src: url(./assets/fonts/BIOTECH-Regular.ttf);
+  
+}
+@font-face {
+  font-family: FontQuicksand;
+  src: url(./assets/fonts/Quicksand_Book.otf);
+  
+}
