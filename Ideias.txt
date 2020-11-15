@@ -1,0 +1,11 @@
+* Criar uma pagina inicial onde o usuario tera acesso a todas as outras
+
+* Sub paginas
+	Wow Infos about me e minha conta onde to sei la
+	Info sobre Lol
+	Noticias em tempo real
+	Pagina todo, disponivel apenas ao admin
+	
+* Responsividade de tudo
+
+*BackEnd
