@@ -3,8 +3,10 @@ import { Switch, Route, HashRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
 //Imgs
 import ShopIcon from "../assets/icons/icons8-shop-96.png";
-
-
+import TodosIdeas from "../Components/Pages/TodosIdeas/index.js"
+import TodosBackEnd from "../Components/Pages/TodosBackEnd/index.js"
+import TodosFrontEnd from "../Components/Pages/TodosFrontEnd/index.js"
+import NotFound404 from "../Components/Pages/Store/NotFound404/index"
 
 export default function TodoPages() {
     document.getElementById("favicon").setAttribute("href", ShopIcon);
@@ -13,7 +15,12 @@ export default function TodoPages() {
   
     return (
       <>
-todo list
+        <Switch>
+          <Route exact path="/todos/ideas" component={TodosIdeas} /> 
+          <Route exact path="/todos/backend" component={TodosBackEnd} /> 
+          <Route exact path="/todos/frontend" component={TodosFrontEnd} />        
+          <Route path="/todos/*" component={NotFound404} />
+        </Switch>
       </>
     );
   }
@@ -27,19 +34,7 @@ export default function TodoPages() {
   return (
     <>
         <Switch>
-              <Route path="/store" component={StoreHeader}/>
-              
-        </Switch>
-        <Switch>
 
-          <Route exact path="/" component={MainLanding} /> 
-          <Route exact path="/admin_painel" component={StoreMain} />
-
-          
-          <Route exact path="/store" component={StoreMain} />
-          <Route exact path="/store/cart" component={StoreCart} />
-          <Route exact path="/store/product/:id_param?" component={StoreProduct} />
-          <Route path="*" component={NotFound} />
         </Switch>
     </>
   );

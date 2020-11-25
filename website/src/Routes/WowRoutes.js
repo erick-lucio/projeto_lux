@@ -13,7 +13,7 @@ export default function TodoPages() {
   
     return (
       <>
-wow
+        <h1>WoW</h1>
       </>
     );
   }

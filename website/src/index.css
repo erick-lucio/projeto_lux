@@ -3,6 +3,10 @@
   padding: 0;
   margin: 0;
   font-size: 14px;
+  
+}
+html body {
+  overflow-x:hidden
 }
 #body_id {
   height: 100vh;
@@ -40,5 +44,10 @@
 @font-face {
   font-family: FontQuicksand;
   src: url(./assets/fonts/Quicksand_Book.otf);
+  
+}
+@font-face {
+  font-family: FontNaruto;
+  src: url(./assets/fonts/njnaruto.ttf);
   
 }

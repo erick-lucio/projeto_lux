@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { Switch, Route, HashRouter } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
 //Imgs
 import { context1 } from "../Context/Context";
@@ -11,24 +11,24 @@ import WowPagesRoutes from "./WowRoutes.js";
 import MainPagesRoutes from "./MainPagesRoutes.js"
 //Valores ou string para nomear as url,colocar no store depois
 
-
+const history = createBrowserHistory
 export default function Website() {
-  document.getElementById("favicon").setAttribute("href", ShopIcon);
+  
 
   return (
     
-    <HashRouter history={history}>
+    <BrowserRouter history={history}>
       <context1.Provider
         value={{
         }}
       >
         <Switch>
-          <Route path="/home/*" component={MainPagesRoutes} /> 
-          <Route path="/todos/*" component={TodoPagesRoutes} /> 
-          <Route path="/wow/*" component={WowPagesRoutes} />        
+          <Route exact path="/" component={MainPagesRoutes} /> 
+          <Route exact path="/todos/*" component={TodoPagesRoutes} /> 
+          <Route exact path="/wow/*" component={WowPagesRoutes} />        
           <Route path="*" component={NotFound} />
         </Switch>
       </context1.Provider>
-    </HashRouter>
+    </BrowserRouter>
   );
 }

@@ -81,7 +81,7 @@ export const ServicesContainer = styled.div`
     display:flex;
     margin-top:30px;
     flex-direction:column;
-    align-itens:center;
+    align-items:center;
 `;
 export const ServiceBox = styled.div`
     display:flex;

@@ -15,8 +15,7 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
-    "prebuild": "echo 'setup faunaDB' && npm run bootstrap",
+    "start": "webpack-dev-server --open --mode development",    
     "build": "webpack --mode production",
     "prettier": "npx prettier --write ."
   },

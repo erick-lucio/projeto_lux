@@ -7,7 +7,11 @@ import ShopIcon from "../assets/icons/icons8-shop-96.png";
 
 //Components
 import NotFound from "../Components/Pages/Store/NotFound404/index.js";
-import MainLandingPage from "../Components/Pages/MainPage/MainLandingPage/index.js";
+import MainLandingPage from "../Components/Pages/MainPage/index.js";
+
+
+
+
 
 
 
@@ -19,10 +23,7 @@ export default function MainPages() {
     return (
       <Switch>
 
-      <Route exact path="/home/" component={MainLandingPage} /> 
-      <Route exact path="/home/1" component={MainLandingPage} />      
-      <Route exact path="/home/2" component={MainLandingPage} />
-      <Route exact path="/home/3" component={MainLandingPage} />
+      <Route exact path="/" component={MainLandingPage} /> 
       <Route exact path="/home/48/:id_param?" component={MainLandingPage} />
       <Route path="/home/*" component={NotFound} />
     </Switch>
